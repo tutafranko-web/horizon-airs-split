@@ -1,0 +1,51 @@
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Navbar states */
+#navbar { background: transparent; }
+#navbar.scrolled {
+  background: rgba(27, 79, 138, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+/* Tour tabs */
+.tour-tab.active {
+  background-color: #1B4F8A !important;
+  color: white !important;
+}
+
+/* FAQ accordion */
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+.faq-answer { transition: all 0.3s ease; }
+
+/* Gallery lightbox */
+#lightbox { display: none; }
+#lightbox.active { display: flex; }
+
+/* Map containers */
+[id^="map-"] { z-index: 1; }
+
+/* Leaflet fix for Tailwind */
+.leaflet-container { font-family: inherit; }
+
+/* Hide scrollbar on tour panels for cleaner look */
+.tour-panel { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive image fixes */
+img { max-width: 100%; height: auto; }
+.gallery-item img { transition: transform 0.3s ease, opacity 0.3s ease; }
+.gallery-item:hover img { transform: scale(1.02); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #1B4F8A; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2EA3F2; }
+
+/* Selection color */
+::selection { background: #2EA3F2; color: white; }

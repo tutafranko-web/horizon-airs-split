@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon Airs Split — Panoramski letovi žirokopterom iznad Dalmacije</title>
+  <meta name="description" content="Doživite Split, otoke i Zagoru iz ptičje perspektive. Panoramski letovi žirokopterom iznad Dalmacije. Najsigurnija letjelica, licencirani piloti, HACZ/EASA standardi.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { navy: '#1B4F8A', sky: '#2EA3F2', accent: '#F5A623', dark: '#1A1A2E' },
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- AOS Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="font-sans text-brand-dark bg-white">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="#pocetna" class="flex items-center gap-3">
+          <img src="images/logo.png" alt="Horizon Airs Split" class="h-12 lg:h-14 rounded-full">
+          <span class="hidden sm:block text-white font-bold text-lg tracking-wide">HORIZON AIRS</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#pocetna" class="nav-link text-white/90 hover:text-white font-medium transition">Početna</a>
+          <a href="#o-zirokopteru" class="nav-link text-white/90 hover:text-white font-medium transition">O žirokopteru</a>
+          <a href="#cijene" class="nav-link text-white/90 hover:text-white font-medium transition">Cijene</a>
+          <a href="#ture" class="nav-link text-white/90 hover:text-white font-medium transition">Ture</a>
+          <a href="#modra-spilja" class="nav-link text-white/90 hover:text-white font-medium transition">Modra špilja</a>
+          <a href="#recenzije" class="nav-link text-white/90 hover:text-white font-medium transition">Recenzije</a>
+          <a href="#galerija" class="nav-link text-white/90 hover:text-white font-medium transition">Galerija</a>
+          <a href="#faq" class="nav-link text-white/90 hover:text-white font-medium transition">FAQ</a>
+          <a href="#rezervacija" class="bg-brand-accent hover:bg-orange-500 text-white font-semibold px-5 py-2.5 rounded-full transition transform hover:scale-105">Rezervirajte let</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-brand-navy/95 backdrop-blur-md border-t border-white/10">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#pocetna" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Početna</a>
+        <a href="#o-zirokopteru" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">O žirokopteru</a>
+        <a href="#cijene" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Cijene</a>
+        <a href="#ture" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Ture</a>
+        <a href="#modra-spilja" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Modra špilja</a>
+        <a href="#recenzije" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Recenzije</a>
+        <a href="#galerija" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Galerija</a>
+        <a href="#faq" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">FAQ</a>
+        <a href="#rezervacija" class="block bg-brand-accent text-white font-semibold text-center py-3 rounded-full mt-2">Rezervirajte let</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="pocetna" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="images/hero-fleet.png" alt="Flota žirokoptera iznad dalmatinskih otoka" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-brand-navy/30 to-brand-navy/80"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <img src="images/logo.png" alt="Horizon Airs Split logo" class="w-32 h-32 mx-auto mb-8 rounded-full shadow-2xl" data-aos="zoom-in" data-aos-duration="800">
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="200">
+        Panoramski letovi<br>
+        <span class="text-brand-accent">žirokopterom</span><br>
+        iznad Dalmacije
+      </h1>
+      <p class="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+        Doživite Split, otoke i Zagoru iz ptičje perspektive — najsigurnijom letjelicom na svijetu
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+        <a href="#rezervacija" class="bg-brand-accent hover:bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-full transition transform hover:scale-105 shadow-lg">
+          Rezervirajte let
+        </a>
+        <a href="#ture" class="border-2 border-white/60 hover:border-white text-white font-semibold text-lg px-8 py-4 rounded-full transition hover:bg-white/10">
+          Pogledajte ture
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+  </section>
+
+  <!-- ========== O ŽIROKOPTERU (WHY GYROCOPTER) ========== -->
+  <section id="o-zirokopteru" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4">Zašto žirokopter?</h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Najugodniji i najsigurniji način letenja</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div data-aos="fade-right">
+          <div class="space-y-6 text-gray-700 leading-relaxed">
+            <p class="text-lg">Žirokopter &mdash; ili autogyro &mdash; spaja slobodu helikoptera i eleganciju aviona u jedinstveno iskustvo letenja. Za razliku od helikoptera, rotor žirokoptera nije pokretan motorom, već se slobodno okreće zahvaljujući struji zraka.</p>
+            <p class="text-lg">To znači da čak i ako motor prestane raditi, <strong class="text-brand-navy">žirokopter ne pada</strong>, već sigurno klizi prema zemlji zahvaljujući prirodnom fenomenu koji se zove <strong class="text-brand-navy">autorotacija</strong>.</p>
+            <p class="text-lg">Zbog toga se žirokopteri diljem svijeta smatraju <strong class="text-brand-navy">jednom od najsigurnijih letjelica ikada proizvedenih</strong>.</p>
+            <p class="text-lg">Lete mirno, stabilno i predvidivo &mdash; čak i u vjetrovitim uvjetima &mdash; dok putnicima pružaju nevjerojatno čist i otvoren pogled na krajolik.</p>
+            <p class="text-lg font-medium text-brand-navy">Upravo ta kombinacija sigurnosti, slobode i pogleda bez prepreka čini svaki let s Horizon Airs Split posebnim iskustvom koje ćete pamtiti zauvijek.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+          <img src="images/pilot-caricature.png" alt="Pilot iznad Splita" class="rounded-2xl shadow-xl w-full h-64 object-cover">
+          <img src="images/pilot-selfie.jpg" alt="Selfie u žirokopteru" class="rounded-2xl shadow-xl w-full h-64 object-cover">
+          <img src="images/amphibious.jpg" alt="Amfibijski žirokopter" class="rounded-2xl shadow-xl w-full h-64 object-cover col-span-2">
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up">
+        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
+          <div class="text-4xl mb-3">&#9993;</div>
+          <h3 class="font-bold text-lg mb-1">Najsigurnija letjelica</h3>
+          <p class="text-white/80 text-sm">Autorotacija = sigurno slijetanje uvijek</p>
+        </div>
+        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
+          <div class="text-4xl mb-3">&#9968;</div>
+          <h3 class="font-bold text-lg mb-1">300-600m visine</h3>
+          <p class="text-white/80 text-sm">Savršen pogled na Dalmaciju</p>
+        </div>
+        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
+          <div class="text-4xl mb-3">&#9992;</div>
+          <h3 class="font-bold text-lg mb-1">Licencirani piloti</h3>
+          <p class="text-white/80 text-sm">ULPL(GYR) dozvola, Aeroklub GYRO-CRO</p>
+        </div>
+        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
+          <div class="text-4xl mb-3">&#9989;</div>
+          <h3 class="font-bold text-lg mb-1">HACZ / EASA</h3>
+          <p class="text-white/80 text-sm">Svi letovi prema europskim standardima</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CIJENE (PRICING) ========== -->
+  <section id="cijene" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4">Cijene letova</h2>
+        <p class="text-lg text-gray-500">Jednostavan cjenik — bez skrivenih troškova</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 mb-10" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-transparent hover:border-brand-sky transition">
+          <p class="text-sm text-gray-500 mb-2">Letovi kraći od 1 sata</p>
+          <p class="text-5xl font-black text-brand-navy">5 &euro;</p>
+          <p class="text-lg text-gray-600 mt-2">po minuti</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-brand-accent relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-bold px-4 py-1 rounded-full">NAJPOPULARNIJE</span>
+          <p class="text-sm text-gray-500 mb-2">Let od 1 sata</p>
+          <p class="text-5xl font-black text-brand-navy">250 &euro;</p>
+          <p class="text-lg text-gray-600 mt-2">po osobi</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-transparent hover:border-brand-sky transition">
+          <p class="text-sm text-gray-500 mb-2">Let od 2 sata</p>
+          <p class="text-5xl font-black text-brand-navy">470 &euro;</p>
+          <p class="text-lg text-gray-600 mt-2">po osobi</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+        <p class="text-gray-600">U cijenu su uključeni svi troškovi letenja, oprema i komunikacija s pilotom.</p>
+        <p class="text-gray-600 mt-2">GoPro snimanje: <strong>20 &euro;</strong> po snimci &bull; <strong>Besplatno</strong> za letove dulje od 90 minuta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TURE (TOURS) ========== -->
+  <section id="ture" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4">Naše ture</h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Odaberite svoju avanturu — morske rute, planinske panorame ili letove iz Sinja</p>
+      </div>
+
+      <!-- Tour Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="100">
+        <button class="tour-tab active bg-brand-navy text-white font-semibold px-6 py-3 rounded-full transition" data-tab="morski">Morski plan</button>
+        <button class="tour-tab bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition hover:bg-gray-300" data-tab="planinski">Planinski plan</button>
+        <button class="tour-tab bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition hover:bg-gray-300" data-tab="sinj">Plan iz Sinja</button>
+      </div>
+
+      <!-- MORSKI PLAN TOURS -->
+      <div id="tab-morski" class="tour-panel">
+        <p class="text-center text-gray-500 mb-8">Polazak: <strong>Split Luka</strong> &mdash; Letovi iznad otoka i obale</p>
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- 15min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/split.jpg" alt="Split iz zraka" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">15 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">75 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Split Skyline Flight</h3>
+              <p class="text-gray-600 text-sm mb-3">Kratak, ali nezaboravan let koji pokazuje Split iz najposebnijeg kuta &mdash; iz zraka. Dok žirokopter uzlijeće iznad trajektne luke, otkriva se panoramski pogled na Rivu, Dioklecijanovu palaču i Marjan.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Marjan &rarr; Kaštelanski zaljev &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sea-15" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Nikad nisam mislila da će Split izgledati tako drugačije odozgo!" &mdash; <strong>Ana Kovačević</strong>, Zagreb</blockquote>
+            </div>
+          </div>
+
+          <!-- 30min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/trogir.jpeg" alt="Trogir iz zraka" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">30 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">150 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Otok i Grad</h3>
+              <p class="text-gray-600 text-sm mb-3">Ova tura vodi vas iznad Splita, Čiova i Trogira &mdash; tri dragulja Dalmacije. U svega pola sata preletjet ćete kulturne simbole Jadrana i doživjeti kontrast starog kamenog grada i plavetnila mora.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Marjan &rarr; Čiovo &rarr; Trogir (UNESCO) &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sea-30" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Prelijepo iskustvo! Vidio sam Trogir, Čiovo i Split iz zraka u samo pola sata." &mdash; <strong>Luca Ferraro</strong>, Italija</blockquote>
+            </div>
+          </div>
+
+          <!-- 45min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/blue-lagoon.jpg" alt="Blue Lagoon Krknjaši" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Tri otoka: Brač &ndash; Šolta &ndash; Blue Lagoon</h3>
+              <p class="text-gray-600 text-sm mb-3">Spektakularan panoramski let iznad tri otoka pruža pogled na tirkizne lagune, maslinike i skrivene uvale. Nakon preleta nad Zlatnim ratom na Braču, let se nastavlja prema Šolti i kristalno čistim vodama Blue Lagoona.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Splitska vrata &rarr; Brač (Zlatni rat) &rarr; Šolta &rarr; Blue Lagoon &rarr; Čiovo &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sea-45" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Let iznad tri otoka bio je čista poezija. Najviše me oduševila Blue Lagoon!" &mdash; <strong>Martina Perić</strong>, turistički vodič</blockquote>
+            </div>
+          </div>
+
+          <!-- 60min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/hvar.jpg" alt="Hvar iz zraka" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Zlatni Krug Dalmacije</h3>
+              <p class="text-gray-600 text-sm mb-3">Najpopularnija morska ruta Horizon Airsa, koja spaja sve najpoznatije ljepote srednje Dalmacije. Letite iznad Brača, Hvara, Paklenih otoka i Šolte uz pogled koji oduzima dah.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Brač (Zlatni rat) &rarr; Hvar &rarr; Pakleni otoci &rarr; Blue Lagoon &rarr; Šolta &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sea-60" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Ovo je moj san s Jadrana. Vidjeti Hvar, Brač i Šoltu u jednom letu bilo je nešto posebno." &mdash; <strong>David M&uuml;ller</strong>, Njemačka</blockquote>
+            </div>
+          </div>
+
+          <!-- 90min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/palmizana.jpg" alt="Pakleni otoci" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Velika Dalmatinska Simfonija</h3>
+              <p class="text-gray-600 text-sm mb-3">Jedinstven let koji povezuje Brač, Hvar, Vis i Paklene otoke u savršenom ritmu mora i neba. Tijekom 90 minuta svjedočit ćete najljepšim panoramama otoka i zaljeva.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Brač &rarr; Hvar &rarr; Pakleni otoci &rarr; Vis &rarr; Šolta &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sea-90" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Najromantičniji trenutak mog ljeta! Let iznad Visa i Paklenih otoka dok sunce zalazi..." &mdash; <strong>Ema Jukić</strong>, Split</blockquote>
+            </div>
+          </div>
+
+          <!-- 120min Stiniva -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/stiniva.jpg" alt="Uvala Stiniva" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Kraljevski let Jadranom</h3>
+              <p class="text-gray-600 text-sm mb-3">Najduži i najluksuzniji morski izlet. Ruta vodi iz Splita prema Braču, Hvaru, Visu i Biševu s preletom iznad čuvene Modre špilje. Prava sinfonija plavetnila, svjetlosti i tišine.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Zlatni rat &rarr; Hvar &rarr; Pakleni &rarr; Vis &rarr; Stiniva &rarr; Biševo &rarr; Šolta &rarr; Blue Lagoon &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sea-120" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Letjeli smo iznad Brača, Hvara, Biševa i Paklenih otoka &mdash; nevjerojatan doživljaj." &mdash; <strong>Jean-Paul Laurent</strong>, Francuska</blockquote>
+            </div>
+          </div>
+
+          <!-- 120min Kornati -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition md:col-span-2" data-aos="fade-up">
+            <div class="md:flex">
+              <div class="relative md:w-1/2 h-48 md:h-auto">
+                <img src="images/tours/kornati.jpg" alt="Kornati" class="w-full h-full object-cover">
+                <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">120 min &bull; NOVA TURA</span>
+                <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
+              </div>
+              <div class="p-6 md:w-1/2">
+                <h3 class="text-xl font-bold text-brand-navy mb-2">Ekskluzivni let na Kornate</h3>
+                <p class="text-gray-600 text-sm mb-3">Polazak iz Splita i let iznad Brača, Šolte i Primoštena vodi vas do jednog od najimpresivnijih nacionalnih parkova Hrvatske &mdash; Kornata. Iz zraka se otkriva veličanstveni mozaik od preko 80 otoka i hridi.</p>
+                <p class="text-xs text-gray-400 mb-3">Split &rarr; Primošten &rarr; Šibenik &rarr; NP Krka &rarr; Kornati &rarr; Žirje &rarr; Zlarin &rarr; Trogir &rarr; Split</p>
+                <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                  <div id="map-sea-kornati" class="h-48 rounded-lg"></div>
+                </div>
+                <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Let na Kornate bio je čisto savršenstvo! Pogled na stotine otoka iz zraka oduzima dah." &mdash; <strong>Thomas Becker</strong>, Njemačka</blockquote>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PLANINSKI PLAN TOURS -->
+      <div id="tab-planinski" class="tour-panel hidden">
+        <p class="text-center text-gray-500 mb-8">Polazak: <strong>Split</strong> &mdash; Letovi prema unutrašnjosti Dalmacije</p>
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- 35min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/kanjon-cetine.jpeg" alt="Kanjon Cetine" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">35 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">175 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Cetinski Kanjon</h3>
+              <p class="text-gray-600 text-sm mb-3">Let iznad smaragdne rijeke Cetine otkriva njezin veličanstveni kanjon koji vijuga kroz kamen i zelenilo. Savršen izlet za ljubitelje prirode i tišine.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Sinj &rarr; Kanjon Cetine &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-mount-35" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Let iznad Cetine je nešto što svatko mora doživjeti. Rijeka izgleda kao zmija od stakla." &mdash; <strong>Peter Novak</strong>, Slovenija</blockquote>
+            </div>
+          </div>
+
+          <!-- 45min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/omis.jpeg" alt="Omiš" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Mosor &amp; Omiška Klisura</h3>
+              <p class="text-gray-600 text-sm mb-3">Panoramski let koji spaja planine i more u jednom pogledu. Vidjet ćete veličanstvene stijene Mosora, Omišku klisuru i ušće Cetine u more.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Mosor &rarr; Omiš &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-mount-45" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Vidjeti Mosor i Omiš iz zraka bilo je kao gledati vlastite planinarske staze s druge strane svijeta." &mdash; <strong>Katarina Marinić</strong>, planinarka</blockquote>
+            </div>
+          </div>
+
+          <!-- 60min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/izvor-cetine.jpg" alt="Izvor Cetine" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Od Mora do Izvora</h3>
+              <p class="text-gray-600 text-sm mb-3">Let započinje iznad Splita i završava iznad izvora rijeke Cetine, poznatog kao "Oko zemlje". Ova ruta simbolizira put života &mdash; od mora do izvora, od plavetnila do zelenila.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Klis &rarr; Sinj &rarr; Izvor Cetine &rarr; Omiš &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-mount-60" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Fenomenalan osjećaj! Počneš uz more, a završiš iznad izvora Cetine." &mdash; <strong>Mate Rimac</strong>, Dugopolje</blockquote>
+            </div>
+          </div>
+
+          <!-- 90min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/dinara.jpeg" alt="Dinara" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Green Heart of Dalmatia</h3>
+              <p class="text-gray-600 text-sm mb-3">Let iznad Sinja, Peruće i obronaka Dinare pruža pogled na najzeleniji dio Dalmacije. Savršena tura za one koji traže spokoj i duboku povezanost s prostorom.</p>
+              <p class="text-xs text-gray-400 mb-3">Split &rarr; Sinj &rarr; Izvor Cetine &rarr; Dinara &rarr; Peruća &rarr; Split</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-mount-90" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Nikada nisam vidjela toliko zelenila u Dalmaciji! Let iznad Sinja i Peruće je meditacija." &mdash; <strong>Maria Lopez</strong>, Španjolska</blockquote>
+            </div>
+          </div>
+
+          <!-- 120min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition md:col-span-2" data-aos="fade-up">
+            <div class="md:flex">
+              <div class="relative md:w-1/2 h-48 md:h-auto">
+                <img src="images/tours/knin.jpeg" alt="Knin" class="w-full h-full object-cover">
+                <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
+                <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
+              </div>
+              <div class="p-6 md:w-1/2">
+                <h3 class="text-xl font-bold text-brand-navy mb-2">Dalmatinska Eko Ekspedicija</h3>
+                <p class="text-gray-600 text-sm mb-3">Najduža i najraznovrsnija planinska tura vodi vas preko Knina, Dinare, Krčića i Peruće. Let koji otkriva geološke, povijesne i prirodne dragulje Dalmacije.</p>
+                <p class="text-xs text-gray-400 mb-3">Split &rarr; Dinara &rarr; Knin &rarr; Krčić slap &rarr; Peruća &rarr; Omiš &rarr; Split</p>
+                <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                  <div id="map-mount-120" class="h-48 rounded-lg"></div>
+                </div>
+                <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Ovaj let je pravi eko-dragulj. Dinara, Knin i Krčić slap &mdash; kao dokumentarac uživo." &mdash; <strong>Ivan Pavlović</strong>, biolog</blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SINJ PLAN TOURS -->
+      <div id="tab-sinj" class="tour-panel hidden">
+        <p class="text-center text-gray-500 mb-8">Polazak: <strong>Aerodrom Piket, Sinj</strong> &mdash; Letovi iz srca Dalmatinske zagore</p>
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- 15min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/sinj-cetina.jpeg" alt="Sinjsko polje" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">15 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">75 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Sinjska Panorama</h3>
+              <p class="text-gray-600 text-sm mb-3">Let iznad Sinjskog polja i Tvrđave Kamičak nudi jedinstven pogled na Alkarski grad i dolinu Cetine. Savršen za kratko, ali dojmljivo iskustvo leta iznad zavičaja.</p>
+              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Tvrđava Kamičak &rarr; Sinjsko polje &rarr; Piket</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sinj-15" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Napokon sam vidjela Sinj iz zraka! Polje, Tvrđava Kamičak i Cetina izgledaju bajkovito." &mdash; <strong>Jelena Vučković</strong>, Sinj</blockquote>
+            </div>
+          </div>
+
+          <!-- 30min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/izvor-cetine.jpg" alt="Izvor Cetine" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">30 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">150 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Izvor Života</h3>
+              <p class="text-gray-600 text-sm mb-3">Ruta koja vodi iz Sinja do mitskog izvora Cetine, "Oka zemlje". Ova tura simbolizira povezanost čovjeka i prirode &mdash; tiha, emotivna i nezaboravna.</p>
+              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Izvor Cetine (Oko zemlje) &rarr; Peruća &rarr; Piket</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sinj-30" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Let do Oka zemlje je nešto posebno. Ta tirkizna boja je nestvarna." &mdash; <strong>Tomislav Petrić</strong>, agronom</blockquote>
+            </div>
+          </div>
+
+          <!-- 45min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/omis.jpeg" alt="Omiš" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Mosor &amp; Cetina</h3>
+              <p class="text-gray-600 text-sm mb-3">Iz Sinja prema Omišu, kroz dolinu i kanjon Cetine &mdash; spoj planine i mora u jednom letu. Idealna tura za one koji žele vidjeti srce Dalmacije s visine.</p>
+              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Dugopolje/Mosor &rarr; Omiš &rarr; Trilj &rarr; Piket</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sinj-45" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Prelet iz Sinja do Omiša kroz dolinu Cetine &mdash; apsolutno čarobno!" &mdash; <strong>Francesca Rossi</strong>, Italija</blockquote>
+            </div>
+          </div>
+
+          <!-- 60min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/brac.jpg" alt="Brač" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">More i Planine Dalmacije</h3>
+              <p class="text-gray-600 text-sm mb-3">Jedna od najljepših ruta Horizon Airsa &mdash; pogled na Dinaru, Mosor, Šoltu i Brač. Let koji u sat vremena prikazuje cijelu Dalmaciju u jednom dahu.</p>
+              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Mosor &rarr; Omiš &rarr; Brač &rarr; Šolta &rarr; Split &rarr; Piket</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sinj-60" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Ovaj let povezuje sve što volim &mdash; more, otoke i planine." &mdash; <strong>Luka Krnić</strong>, profesionalni skiper</blockquote>
+            </div>
+          </div>
+
+          <!-- 90min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
+            <div class="relative h-48">
+              <img src="images/tours/peruca.jpg" alt="Peručko jezero" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Zlatni Krug Cetine</h3>
+              <p class="text-gray-600 text-sm mb-3">Let koji prati rijeku Cetinu od izvora do mora. To je simboličan, miran i spektakularan krug koji priča priču o snazi i ljepoti života u Dalmaciji.</p>
+              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Dinara &rarr; Knin &rarr; Krčić &rarr; Peruća &rarr; Klis &rarr; Split &rarr; Piket</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sinj-90" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Let koji spaja izvor i ušće Cetine! Kao lekcija iz geografije, ali živa i emotivna." &mdash; <strong>Sandra Delić</strong>, profesorica</blockquote>
+            </div>
+          </div>
+
+          <!-- 120min -->
+          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative h-48">
+              <img src="images/tours/hvar.jpg" alt="Hvar" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
+              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-navy mb-2">Dalmatinski Epic Flight</h3>
+              <p class="text-gray-600 text-sm mb-3">Najveći let koji spaja planine, otoke, rijeke i obalu u jedno epsko iskustvo. Od Sinja do mora i natrag &mdash; ovo nije samo let, ovo je priča o Dalmaciji viđena iz neba.</p>
+              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Dinara &rarr; Knin &rarr; Krčić &rarr; Izvor Cetine &rarr; Peruća &rarr; Mosor &rarr; Omiš &rarr; Brač &rarr; Hvar &rarr; Split &rarr; Piket</p>
+              <div class="bg-gray-50 rounded-xl p-3 mb-3">
+                <div id="map-sinj-120" class="h-48 rounded-lg"></div>
+              </div>
+              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Ovo je let života. Od Dinare do mora, preko otoka i natrag &mdash; čista poezija." &mdash; <strong>Mark Johnson</strong>, SAD</blockquote>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== MODRA ŠPILJA (BLUE CAVE EXCLUSIVE) ========== -->
+  <section id="modra-spilja" class="py-20 lg:py-28 bg-gradient-to-br from-brand-navy via-blue-900 to-brand-navy text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img src="images/tours/modra-spilja.jpeg" alt="" class="w-full h-full object-cover">
+    </div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <span class="inline-block bg-brand-accent text-white text-sm font-bold px-4 py-2 rounded-full mb-6">EKSKLUZIVNA TURA</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Modra špilja iz zraka</h2>
+        <p class="text-xl text-white/80 max-w-3xl mx-auto">Doživite jedno od najljepših čuda Jadrana iz potpuno nove perspektive &mdash; iz zraka!</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right">
+          <p class="text-lg text-white/90 mb-6">Polazak iz Splita, uz spektakularan let iznad Bračkog kanala, otoka Hvara, paklenskih otoka Visa i Biševa, završava nezaboravnim prizorom Modre špilje, svjetski poznate po svojoj čarobnoj plavoj svjetlosti.</p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <span class="bg-brand-accent rounded-full w-10 h-10 flex items-center justify-center text-lg shrink-0">&#128176;</span>
+              <span class="text-lg"><strong>260 &euro;</strong> po osobi</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="bg-brand-accent rounded-full w-10 h-10 flex items-center justify-center text-lg shrink-0">&#9202;</span>
+              <span class="text-lg">Oko <strong>60 minuta</strong> (uključujući polijetanje i povratak)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="bg-brand-accent rounded-full w-10 h-10 flex items-center justify-center text-lg shrink-0">&#128205;</span>
+              <span class="text-lg">Polazak: <strong>Split Luka</strong> (amfibijski žirokopter)</span>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-3 mb-6">
+            <div id="map-modra-spilja" class="h-56 rounded-lg"></div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+            <div class="text-5xl mb-4">&#11088;</div>
+            <h3 class="text-xl font-bold mb-4">"Best way to see the Blue Cave &mdash; no crowds, pure freedom!"</h3>
+            <p class="text-white/80 leading-relaxed mb-6">I'm from Colorado and thought I'd seen it all &mdash; but this gyrocopter flight from Split with Horizon Airs was on another level. We flew over the islands and passed hundreds of boats slowly heading toward the Blue Cave, while we just glided above them and got there first &mdash; no crowds, just stunning views.</p>
+            <p class="text-white/80 leading-relaxed mb-6">The pilot was professional and made me feel completely safe the whole time. Honestly, it's the most unforgettable thing I've done in Croatia!</p>
+            <p class="font-semibold text-brand-accent">&mdash; Emily R., Colorado, USA</p>
+          </div>
+          <a href="#rezervacija" class="mt-6 inline-block w-full text-center bg-brand-accent hover:bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-full transition transform hover:scale-105">Rezervirajte let na Modru špilju</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RECENZIJE (TESTIMONIALS) ========== -->
+  <section id="recenzije" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4">Što kažu naši putnici</h2>
+        <p class="text-lg text-gray-500">Autentične recenzije stvarnih gostiju</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up">
+          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="text-gray-600 italic mb-4">"Nikad nisam mislila da će Split izgledati tako drugačije odozgo! Riva, Marjan i cijeli grad kao na dlanu."</p>
+          <p class="font-semibold text-brand-navy">Ana Kovačević</p>
+          <p class="text-sm text-gray-400">28, arhitektica iz Zagreba &bull; 15 min let</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="text-gray-600 italic mb-4">"Ovo je moj san s Jadrana. Vidjeti Hvar, Brač i Šoltu u jednom letu bilo je nešto posebno. Savršeno tempirano!"</p>
+          <p class="font-semibold text-brand-navy">David M&uuml;ller</p>
+          <p class="text-sm text-gray-400">42, inženjer iz Njemačke &bull; 60 min let</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="text-gray-600 italic mb-4">"Najromantičniji trenutak mog ljeta! Let iznad Visa i Paklenih otoka dok sunce zalazi... Boje, mir, i osjećaj da vrijeme stoji."</p>
+          <p class="font-semibold text-brand-navy">Ema Jukić</p>
+          <p class="text-sm text-gray-400">26, influencerica iz Splita &bull; 90 min let</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up">
+          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="text-gray-600 italic mb-4">"Letjeli smo iznad Brača, Hvara, Biševa i Paklenih otoka &mdash; nevjerojatan doživljaj. Kao bivši pilot, mogu reći da je let izveden besprijekorno."</p>
+          <p class="font-semibold text-brand-navy">Jean-Paul Laurent</p>
+          <p class="text-sm text-gray-400">54, pilot u mirovini iz Francuske &bull; 120 min let</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="text-gray-600 italic mb-4">"Let iznad Cetine je nešto što svatko mora doživjeti. Rijeka izgleda kao zmija od stakla. Pilot mi je čak pokazao gdje se održava Sinjska alka!"</p>
+          <p class="font-semibold text-brand-navy">Peter Novak</p>
+          <p class="text-sm text-gray-400">39, Slovenac &bull; 35 min planinski let</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="text-gray-600 italic mb-4">"Ovo je let života. Od Dinare do mora, preko otoka i natrag &mdash; čista poezija. Pilot i ekipa su pravi ambasadori Dalmacije. 10/10!"</p>
+          <p class="font-semibold text-brand-navy">Mark Johnson</p>
+          <p class="text-sm text-gray-400">44, pilot amater iz SAD-a &bull; 120 min iz Sinja</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALERIJA ========== -->
+  <section id="galerija" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4">Galerija</h2>
+        <p class="text-lg text-gray-500">Dalmacija iz ptičje perspektive</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div class="gallery-item col-span-2 row-span-2" data-aos="zoom-in">
+          <img src="images/hero-fleet.png" alt="Flota žirokoptera" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
+          <img src="images/tours/hvar.jpg" alt="Hvar" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/tours/stiniva.jpg" alt="Stiniva" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
+          <img src="images/tours/kornati.jpg" alt="Kornati" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/tours/palmizana.jpg" alt="Palmižana" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in">
+          <img src="images/pilot-caricature.png" alt="Pilot iznad Splita" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
+          <img src="images/tours/izvor-cetine.jpg" alt="Izvor Cetine" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/split/kapetanija.jpg" alt="Split iz zraka" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in">
+          <img src="images/tours/krka.jpg" alt="NP Krka" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
+          <img src="images/split/marjan-aerial.jpg" alt="Marjan" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/tours/dinara.jpeg" alt="Dinara" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in">
+          <img src="images/amphibious.jpg" alt="Amfibijski žirokopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
+          <img src="images/tours/zlarin.jpg" alt="Zlarin" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/pilot-selfie.jpg" alt="Selfie u žirokopteru" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4 cursor-pointer">
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain rounded-lg">
+      <button class="absolute top-4 right-4 text-white text-4xl hover:text-brand-accent transition">&times;</button>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section id="faq" class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4">Najčešća pitanja</h2>
+        <p class="text-lg text-gray-500">Sve što trebate znati prije leta</p>
+      </div>
+
+      <!-- FAQ Categories -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up">Općenita pitanja</h3>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Što je žirokopter?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Žirokopter (autogyro) je zrakoplov koji kombinira najbolje karakteristike helikoptera i aviona. Rotor se ne pokreće motorom, već se slobodno okreće u zraku, što omogućuje izuzetno stabilan i siguran let. Zahvaljujući principu autorotacije, žirokopter ne može „pasti" čak ni u slučaju kvara motora &mdash; što ga čini jednom od najsigurnijih letjelica na svijetu.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Koliko je žirokopter siguran?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Vrlo siguran. Žirokopter leti stabilno, mirno i kontrolirano, a u slučaju kvara motora rotor nastavlja slobodno rotirati, omogućujući sigurno i mekano slijetanje. Upravo zato se koristi i u školama letenja i zračnim patrolama diljem svijeta.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Koliko osoba može letjeti u jednom žirokopteru?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Žirokopter ima dva mjesta &mdash; jedno za pilota i jedno za putnika. Za parove ili grupe, Horizon Airs Split nudi mogućnost usklađenih letova u paru pomoću flote žirokoptera, tako da možete letjeti jedan uz drugog i dijeliti doživljaj iz zraka.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Koliko visoko leti žirokopter?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Najčešće letimo između 300 i 600 metara visine, ovisno o ruti i uvjetima, što omogućuje savršen pogled na Dalmaciju i njene otoke.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Tko upravlja letjelicom?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Svi letovi obavljaju se uz licencirane pilote s ULPL(GYR) dozvolom, članove Aerokluba GYRO-CRO, uz striktno poštivanje svih sigurnosnih standarda Hrvatske agencije za civilno zrakoplovstvo (HACZ).</div>
+        </div>
+
+        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up">Rezervacije i plaćanje</h3>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Kako mogu rezervirati let?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Let možete rezervirati direktno putem naše web stranice. Nakon što odaberete termin i rutu, primit ćete potvrdu i upute za uplatu akontacije.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Koje načine plaćanja prihvaćate?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Prihvaćamo sve načine plaćanja &mdash; gotovinu, Mastercard, Visa, Revolut, Aircash, Bitcoin i druge popularne oblike digitalnog plaćanja.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Mogu li otkazati ili promijeniti rezervaciju?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Da. Rezervaciju možete otkazati ili promijeniti najkasnije 72 sata prije termina, bez ikakvih troškova. U tom slučaju, akontacija se u potpunosti vraća. Za otkazivanja unutar 72 sata, akontacija se zadržava radi pokrivanja troškova pripreme.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Što ako se let otkaže zbog vremena?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Ako vremenski uvjeti nisu pogodni, let se odgađa za prvi slobodan termin koji vama odgovara. Ako novi termin ne možete prihvatiti, akontacija se u cijelosti vraća.</div>
+        </div>
+
+        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up">Tijek leta i iskustvo</h3>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Moram li imati prethodno iskustvo u letenju?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Ne, nije potrebno nikakvo iskustvo. Pilot vodi cijeli let i objasnit će vam sve prije polijetanja. Vaš zadatak je samo &mdash; uživati u pogledu!</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Mogu li snimati let?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Let se može snimati od strane putnika, ali to nije preporučljivo zbog rizika od gubitka mobitela ili druge opreme tijekom leta. Zato Horizon Airs Split nudi profesionalno snimanje s GoPro Hero i GoPro 360 kamerama po cijeni od 20 &euro; po snimci, dok je snimanje besplatno za sve letove dulje od 90 minuta.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Postoji li težinsko ograničenje?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Da, iz sigurnosnih razloga maksimalna težina putnika je 115 kg.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Što trebam ponijeti?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Ponesite sunčane naočale i laganu jaknu &mdash; kaciga, komunikacijski sustav i sigurnosna oprema osigurani su na licu mjesta.</div>
+        </div>
+
+        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up">Posebne usluge</h3>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Nudite li poklon-vaučere?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Da, nudimo personalizirane poklon-vaučere s trajanjem od 12 mjeseci &mdash; idealne za rođendane, godišnjice ili poslovne poklone.</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Organizirate li posebne letove za parove i snimanja?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Da, uz standardne panoramske rute nudimo romantične letove u paru, foto i video letove te business promo letove za marketinške snimke i evente. Za parove organiziramo sinkronizirane letove flote kako biste zajedno uživali u nebeskom doživljaju.</div>
+        </div>
+
+        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up">Sigurnost i licence</h3>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Tko nadzire vaše letove?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Svi letovi se obavljaju u skladu s propisima Hrvatske agencije za civilno zrakoplovstvo (HACZ) i Europske agencije za sigurnost zračnog prometa (EASA).</div>
+        </div>
+
+        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
+          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
+            <span>Kako se održavaju letjelice?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer hidden px-6 pb-4 text-gray-600">Žirokopteri se redovito servisiraju prema uputama proizvođača (Autogyro MTO 914, motor Rotax 914), uz redovne 25-, 100-, 200- i 500-satne preglede. Svi dijelovi, ulja i komponente su originalni i zamjenjuju se isključivo prema certificiranim standardima.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REZERVACIJA (BOOKING FORM) ========== -->
+  <section id="rezervacija" class="py-20 lg:py-28 bg-gradient-to-br from-brand-navy to-blue-900 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Rezervirajte svoj let</h2>
+        <p class="text-lg text-white/80">Ispunite obrazac i javit ćemo vam se u najkraćem roku</p>
+      </div>
+
+      <form action="https://formsubmit.co/tutafranko@gmail.com" method="POST" class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 space-y-6" data-aos="fade-up" data-aos-delay="200">
+        <input type="hidden" name="_subject" value="Nova rezervacija - Horizon Airs Split">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-white/80 mb-2">Ime i prezime *</label>
+            <input type="text" name="name" required class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent" placeholder="Vaše ime">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-white/80 mb-2">Email *</label>
+            <input type="email" name="email" required class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent" placeholder="vas@email.com">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-medium text-white/80 mb-2">Telefon</label>
+            <input type="tel" name="phone" class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent" placeholder="+385 ...">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-white/80 mb-2">Željeni datum</label>
+            <input type="date" name="date" class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-white/80 mb-2">Odaberite turu *</label>
+          <select name="tour" required class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
+            <option value="" class="text-gray-800">-- Odaberite turu --</option>
+            <optgroup label="Morski plan (Split Luka)" class="text-gray-800">
+              <option value="morski-15" class="text-gray-800">15 min — Split Skyline Flight (75 €)</option>
+              <option value="morski-30" class="text-gray-800">30 min — Otok i Grad (150 €)</option>
+              <option value="morski-45" class="text-gray-800">45 min — Tri otoka (225 €)</option>
+              <option value="morski-60" class="text-gray-800">60 min — Zlatni Krug Dalmacije (250 €)</option>
+              <option value="morski-90" class="text-gray-800">90 min — Velika Dalmatinska Simfonija (375 €)</option>
+              <option value="morski-120" class="text-gray-800">120 min — Kraljevski let Jadranom (470 €)</option>
+              <option value="morski-kornati" class="text-gray-800">120 min — Ekskluzivni let na Kornate (470 €)</option>
+            </optgroup>
+            <optgroup label="Planinski plan (Split)" class="text-gray-800">
+              <option value="planinski-35" class="text-gray-800">35 min — Cetinski Kanjon (175 €)</option>
+              <option value="planinski-45" class="text-gray-800">45 min — Mosor & Omiška Klisura (225 €)</option>
+              <option value="planinski-60" class="text-gray-800">60 min — Od Mora do Izvora (250 €)</option>
+              <option value="planinski-90" class="text-gray-800">90 min — Green Heart of Dalmatia (375 €)</option>
+              <option value="planinski-120" class="text-gray-800">120 min — Dalmatinska Eko Ekspedicija (470 €)</option>
+            </optgroup>
+            <optgroup label="Plan iz Sinja (Aerodrom Piket)" class="text-gray-800">
+              <option value="sinj-15" class="text-gray-800">15 min — Sinjska Panorama (75 €)</option>
+              <option value="sinj-30" class="text-gray-800">30 min — Izvor Života (150 €)</option>
+              <option value="sinj-45" class="text-gray-800">45 min — Mosor & Cetina (225 €)</option>
+              <option value="sinj-60" class="text-gray-800">60 min — More i Planine Dalmacije (250 €)</option>
+              <option value="sinj-90" class="text-gray-800">90 min — Zlatni Krug Cetine (375 €)</option>
+              <option value="sinj-120" class="text-gray-800">120 min — Dalmatinski Epic Flight (470 €)</option>
+            </optgroup>
+            <optgroup label="Ekskluzivna tura" class="text-gray-800">
+              <option value="modra-spilja" class="text-gray-800">Modra špilja — ekskluzivni let (260 €)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-white/80 mb-2">Poruka</label>
+          <textarea name="message" rows="3" class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent resize-none" placeholder="Posebni zahtjevi, broj putnika, pitanja..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-brand-accent hover:bg-orange-500 text-white font-bold text-lg py-4 rounded-full transition transform hover:scale-105 shadow-lg">
+          Pošaljite upit
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-brand-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <img src="images/logo.png" alt="Horizon Airs Split" class="h-16 rounded-full mb-4">
+          <p class="text-white/60 text-sm">Panoramski letovi žirokopterom iznad Dalmacije. Najsigurnija letjelica, licencirani piloti, nezaboravni pogledi.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Kontakt</h4>
+          <div class="space-y-2 text-white/70 text-sm">
+            <p>tutafranko@gmail.com</p>
+            <p>Split Luka &bull; Aerodrom Piket, Sinj</p>
+            <p>Splitsko-dalmatinska županija, Hrvatska</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Brze veze</h4>
+          <div class="space-y-2 text-white/70 text-sm">
+            <a href="#ture" class="block hover:text-white transition">Naše ture</a>
+            <a href="#cijene" class="block hover:text-white transition">Cijene</a>
+            <a href="#faq" class="block hover:text-white transition">FAQ</a>
+            <a href="#rezervacija" class="block hover:text-white transition">Rezervacija</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Sigurnost</h4>
+          <div class="space-y-2 text-white/70 text-sm">
+            <p>HACZ &mdash; Hrvatska agencija za civilno zrakoplovstvo</p>
+            <p>EASA &mdash; Europska agencija za sigurnost zračnog prometa</p>
+            <p>Aeroklub GYRO-CRO</p>
+            <p>Autogyro MTO 914 / Rotax 914</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center text-white/40 text-sm">
+        <p>&copy; 2025 Horizon Airs Split. Sva prava pridržana.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
