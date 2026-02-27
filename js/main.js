@@ -10,10 +10,39 @@ window.addEventListener('scroll', () => {
 // ========== Mobile Menu ==========
 const mobileBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+mobileBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  mobileMenu.classList.toggle('hidden');
+});
 document.querySelectorAll('.mobile-link').forEach(link => {
   link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
 });
+// Close mobile menu on outside click
+document.addEventListener('click', (e) => {
+  if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+    mobileMenu.classList.add('hidden');
+  }
+});
+
+// ========== Active Nav Link Highlighting ==========
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.remove('text-brand-accent', '!text-brand-accent');
+        link.classList.add('text-white/90');
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('!text-brand-accent');
+          link.classList.remove('text-white/90');
+        }
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+sections.forEach(s => sectionObserver.observe(s));
 
 // ========== Tour Tabs ==========
 const tabs = document.querySelectorAll('.tour-tab');
@@ -47,17 +76,83 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
   });
 });
 
-// ========== Gallery Lightbox ==========
+// ========== Gallery Lightbox with Prev/Next ==========
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-document.querySelectorAll('.gallery-item img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('active');
-  });
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+let currentGalleryIndex = 0;
+
+function showLightbox(index) {
+  currentGalleryIndex = index;
+  lightboxImg.src = galleryImages[index].src;
+  lightboxImg.alt = galleryImages[index].alt;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function prevImage() {
+  currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentGalleryIndex].src;
+  lightboxImg.alt = galleryImages[currentGalleryIndex].alt;
+}
+
+function nextImage() {
+  currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+  lightboxImg.src = galleryImages[currentGalleryIndex].src;
+  lightboxImg.alt = galleryImages[currentGalleryIndex].alt;
+}
+
+galleryImages.forEach((img, i) => {
+  img.addEventListener('click', () => showLightbox(i));
 });
-lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+// Keyboard support
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') prevImage();
+  if (e.key === 'ArrowRight') nextImage();
+});
+
+// ========== Back to Top Button ==========
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    backToTop.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+    backToTop.classList.add('opacity-100', 'translate-y-0');
+  } else {
+    backToTop.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    backToTop.classList.remove('opacity-100', 'translate-y-0');
+  }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ========== Form Submission Feedback ==========
+const bookingForm = document.querySelector('form[action*="formsubmit"]');
+if (bookingForm) {
+  bookingForm.addEventListener('submit', function(e) {
+    const btn = this.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.innerHTML = currentLang === 'hr' ? 'Slanje...' : 'Sending...';
+    btn.classList.add('opacity-70');
+  });
+}
 
 // ========== Language Toggle (EN/HR) ==========
 let currentLang = 'en';
@@ -66,6 +161,12 @@ const englishTexts = {};
 // Store original English text on first load
 document.querySelectorAll('[data-i18n]').forEach(el => {
   englishTexts[el.getAttribute('data-i18n')] = el.innerHTML;
+});
+
+// Store original English placeholders
+const englishPlaceholders = {};
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+  englishPlaceholders[el.getAttribute('data-i18n-placeholder')] = el.placeholder;
 });
 
 const croatianTexts = {
@@ -240,7 +341,45 @@ const croatianTexts = {
   'footer.safety': 'Sigurnost',
   'footer.s1': 'HACZ — Hrvatska agencija za civilno zrakoplovstvo',
   'footer.s2': 'EASA — Europska agencija za sigurnost zračnog prometa',
-  'footer.copy': '&copy; 2025 Horizon Airs Split. Sva prava pridržana.'
+  'footer.copy': '&copy; 2026 Horizon Airs Split. Sva prava pridržana.'
+};
+
+const croatianPlaceholders = {
+  'book.nameph': 'Vaše ime',
+  'book.msgph': 'Posebni zahtjevi, broj putnika, pitanja...'
+};
+
+// Booking dropdown translations
+const englishOptions = {};
+const croatianOptions = {
+  '-- Select a tour --': '-- Odaberite turu --',
+  'Coastal Routes (Split Harbor)': 'Morske rute (Split Luka)',
+  'Mountain Routes (Split)': 'Planinske rute (Split)',
+  'Sinj Routes (Piket Airfield)': 'Rute iz Sinja (Aerodrom Piket)',
+  'Exclusive': 'Ekskluzivno',
+  'Private Charter': 'Privatni charter',
+  '15 min — Split Skyline Flight (75 €)': '15 min — Let iznad Splita (75 €)',
+  '30 min — Island & City (150 €)': '30 min — Otok i grad (150 €)',
+  '45 min — Three Islands (225 €)': '45 min — Tri otoka (225 €)',
+  '60 min — Golden Circle of Dalmatia (250 €)': '60 min — Zlatni krug Dalmacije (250 €)',
+  '90 min — Grand Dalmatian Symphony (375 €)': '90 min — Dalmatinska simfonija (375 €)',
+  '120 min — Royal Adriatic Flight (470 €)': '120 min — Kraljevski jadranski let (470 €)',
+  '120 min — Exclusive Kornati Flight (470 €)': '120 min — Ekskluzivni let na Kornate (470 €)',
+  '35 min — Cetina Canyon (175 €)': '35 min — Kanjon Cetine (175 €)',
+  '45 min — Mosor & Omiš Gorge (225 €)': '45 min — Mosor i Omiška klisura (225 €)',
+  '60 min — From Sea to Source (250 €)': '60 min — Od mora do izvora (250 €)',
+  '90 min — Green Heart of Dalmatia (375 €)': '90 min — Zeleno srce Dalmacije (375 €)',
+  '120 min — Dalmatian Eco Expedition (470 €)': '120 min — Dalmatinska eko ekspedicija (470 €)',
+  '15 min — Sinj Panorama (75 €)': '15 min — Panorama Sinja (75 €)',
+  '30 min — Source of Life (150 €)': '30 min — Izvor života (150 €)',
+  '45 min — Mosor & Cetina (225 €)': '45 min — Mosor i Cetina (225 €)',
+  '60 min — Sea & Mountains of Dalmatia (250 €)': '60 min — More i planine Dalmacije (250 €)',
+  '90 min — Golden Circle of the Cetina (375 €)': '90 min — Zlatni krug Cetine (375 €)',
+  '120 min — Dalmatian Epic Flight (470 €)': '120 min — Epski dalmatinski let (470 €)',
+  'Blue Cave — exclusive flight (260 €)': 'Modra špilja — ekskluzivni let (260 €)',
+  'Private Charter — custom route (contact us)': 'Privatni charter — prilagođena ruta (kontaktirajte nas)',
+  'Couples Formation Flight (contact us)': 'Let u formaciji za parove (kontaktirajte nas)',
+  'Photo & Video Production Flight (contact us)': 'Foto i video produkcijski let (kontaktirajte nas)'
 };
 
 function setLanguage(lang) {
@@ -252,6 +391,38 @@ function setLanguage(lang) {
       el.innerHTML = texts[key];
     }
   });
+
+  // Translate placeholders
+  const placeholders = lang === 'hr' ? croatianPlaceholders : englishPlaceholders;
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (placeholders[key]) {
+      el.placeholder = placeholders[key];
+    }
+  });
+
+  // Translate booking dropdown
+  const select = document.querySelector('select[name="tour"]');
+  if (select) {
+    const translations = lang === 'hr' ? croatianOptions : null;
+    select.querySelectorAll('option').forEach(opt => {
+      if (!opt.dataset.originalText) opt.dataset.originalText = opt.textContent;
+      if (translations && translations[opt.dataset.originalText]) {
+        opt.textContent = translations[opt.dataset.originalText];
+      } else if (!translations) {
+        opt.textContent = opt.dataset.originalText;
+      }
+    });
+    select.querySelectorAll('optgroup').forEach(grp => {
+      if (!grp.dataset.originalLabel) grp.dataset.originalLabel = grp.label;
+      if (translations && translations[grp.dataset.originalLabel]) {
+        grp.label = translations[grp.dataset.originalLabel];
+      } else if (!translations) {
+        grp.label = grp.dataset.originalLabel;
+      }
+    });
+  }
+
   document.documentElement.lang = lang === 'hr' ? 'hr' : 'en';
 
   // Update toggle buttons
@@ -259,6 +430,11 @@ function setLanguage(lang) {
   document.getElementById('lang-toggle').innerHTML = label;
   document.getElementById('lang-toggle-mobile').innerHTML = label;
 }
+
+// Store original placeholders for English restore
+document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+  englishPlaceholders[el.getAttribute('data-i18n-placeholder')] = el.placeholder;
+});
 
 document.getElementById('lang-toggle').addEventListener('click', () => {
   setLanguage(currentLang === 'en' ? 'hr' : 'en');

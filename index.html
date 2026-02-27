@@ -7,6 +7,19 @@
   <meta name="description" content="Experience Split, the islands and the hinterland from a bird's eye view. Panoramic gyrocopter flights over Dalmatia. The safest aircraft, certified pilots, European safety standards.">
   <link rel="icon" type="image/png" href="images/logo.png">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Horizon Airs Split — Panoramic Gyrocopter Flights Over Dalmatia">
+  <meta property="og:description" content="Experience Split, the islands and the hinterland from a bird's eye view. The safest aircraft, certified pilots, European safety standards.">
+  <meta property="og:image" content="https://tutafranko-web.github.io/horizon-airs-split/images/hero-fleet.png">
+  <meta property="og:url" content="https://tutafranko-web.github.io/horizon-airs-split/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Horizon Airs Split — Panoramic Gyrocopter Flights">
+  <meta name="twitter:description" content="Experience Dalmatia from a bird's eye view in the safest aircraft in the world.">
+  <meta name="twitter:image" content="https://tutafranko-web.github.io/horizon-airs-split/images/hero-fleet.png">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -23,10 +36,10 @@
   </script>
 
   <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
 
   <!-- AOS Animate On Scroll -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous"/>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +77,7 @@
           <button id="lang-toggle-mobile" class="text-white/80 hover:text-white font-semibold text-xs border border-white/30 rounded-full px-2.5 py-1 transition" title="Switch language">
             HR &#127469;&#127479;
           </button>
-          <button id="mobile-menu-btn" class="text-white p-2">
+          <button id="mobile-menu-btn" class="text-white p-2" aria-label="Open menu">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           </button>
         </div>
@@ -89,7 +102,7 @@
   <!-- ========== HERO SECTION ========== -->
   <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0">
-      <img src="images/hero-fleet.png" alt="Gyrocopter fleet above Dalmatian islands" class="w-full h-full object-cover">
+      <img src="images/hero-fleet.png" alt="Gyrocopter fleet above Dalmatian islands" class="w-full h-full object-cover" loading="lazy">
       <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-brand-navy/30 to-brand-navy/80"></div>
     </div>
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -135,9 +148,9 @@
           </div>
         </div>
         <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
-          <img src="images/pilot-caricature.png" alt="Pilot above Split" class="rounded-2xl shadow-xl w-full h-64 object-cover">
-          <img src="images/pilot-selfie.jpg" alt="Gyrocopter selfie" class="rounded-2xl shadow-xl w-full h-64 object-cover">
-          <img src="images/amphibious.jpg" alt="Amphibious gyrocopter" class="rounded-2xl shadow-xl w-full h-64 object-cover col-span-2">
+          <img src="images/pilot-caricature.png" alt="Pilot above Split" class="rounded-2xl shadow-xl w-full h-64 object-cover" loading="lazy">
+          <img src="images/pilot-selfie.jpg" alt="Gyrocopter selfie" class="rounded-2xl shadow-xl w-full h-64 object-cover" loading="lazy">
+          <img src="images/amphibious.jpg" alt="Amphibious gyrocopter" class="rounded-2xl shadow-xl w-full h-64 object-cover col-span-2" loading="lazy">
         </div>
       </div>
 
@@ -267,7 +280,7 @@
           <!-- 15min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/split.jpg" alt="Split aerial view" class="w-full h-full object-cover">
+              <img src="images/tours/split.jpg" alt="Split aerial view" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">15 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">75 &euro;</span>
             </div>
@@ -285,7 +298,7 @@
           <!-- 30min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/trogir.jpeg" alt="Trogir aerial" class="w-full h-full object-cover">
+              <img src="images/tours/trogir.jpeg" alt="Trogir aerial" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">30 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">150 &euro;</span>
             </div>
@@ -303,7 +316,7 @@
           <!-- 45min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/blue-lagoon.jpg" alt="Blue Lagoon" class="w-full h-full object-cover">
+              <img src="images/tours/blue-lagoon.jpg" alt="Blue Lagoon" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
             </div>
@@ -321,7 +334,7 @@
           <!-- 60min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/hvar.jpg" alt="Hvar aerial" class="w-full h-full object-cover">
+              <img src="images/tours/hvar.jpg" alt="Hvar aerial" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
             </div>
@@ -339,7 +352,7 @@
           <!-- 90min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/palmizana.jpg" alt="Pakleni Islands" class="w-full h-full object-cover">
+              <img src="images/tours/palmizana.jpg" alt="Pakleni Islands" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
             </div>
@@ -357,7 +370,7 @@
           <!-- 120min Stiniva -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/stiniva.jpg" alt="Stiniva Bay" class="w-full h-full object-cover">
+              <img src="images/tours/stiniva.jpg" alt="Stiniva Bay" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
             </div>
@@ -376,7 +389,7 @@
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition md:col-span-2" data-aos="fade-up">
             <div class="md:flex">
               <div class="relative md:w-1/2 h-48 md:h-auto">
-                <img src="images/tours/kornati.jpg" alt="Kornati National Park" class="w-full h-full object-cover">
+                <img src="images/tours/kornati.jpg" alt="Kornati National Park" class="w-full h-full object-cover" loading="lazy">
                 <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">120 min &bull; NEW</span>
                 <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
               </div>
@@ -403,7 +416,7 @@
           <!-- 35min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/kanjon-cetine.jpeg" alt="Cetina Canyon" class="w-full h-full object-cover">
+              <img src="images/tours/kanjon-cetine.jpeg" alt="Cetina Canyon" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">35 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">175 &euro;</span>
             </div>
@@ -421,7 +434,7 @@
           <!-- 45min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-full object-cover">
+              <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
             </div>
@@ -439,7 +452,7 @@
           <!-- 60min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/izvor-cetine.jpg" alt="Source of the Cetina" class="w-full h-full object-cover">
+              <img src="images/tours/izvor-cetine.jpg" alt="Source of the Cetina" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
             </div>
@@ -457,7 +470,7 @@
           <!-- 90min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/dinara.jpeg" alt="Dinara mountain" class="w-full h-full object-cover">
+              <img src="images/tours/dinara.jpeg" alt="Dinara mountain" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
             </div>
@@ -476,7 +489,7 @@
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition md:col-span-2" data-aos="fade-up">
             <div class="md:flex">
               <div class="relative md:w-1/2 h-48 md:h-auto">
-                <img src="images/tours/knin.jpeg" alt="Knin Fortress" class="w-full h-full object-cover">
+                <img src="images/tours/knin.jpeg" alt="Knin Fortress" class="w-full h-full object-cover" loading="lazy">
                 <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
                 <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
               </div>
@@ -502,7 +515,7 @@
           <!-- 15min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/sinj-cetina.jpeg" alt="Sinj panorama" class="w-full h-full object-cover">
+              <img src="images/tours/sinj-cetina.jpeg" alt="Sinj panorama" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">15 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">75 &euro;</span>
             </div>
@@ -520,7 +533,7 @@
           <!-- 30min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/izvor-cetine.jpg" alt="Source of Cetina" class="w-full h-full object-cover">
+              <img src="images/tours/izvor-cetine.jpg" alt="Source of Cetina" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">30 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">150 &euro;</span>
             </div>
@@ -538,7 +551,7 @@
           <!-- 45min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-full object-cover">
+              <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
             </div>
@@ -556,7 +569,7 @@
           <!-- 60min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/brac.jpg" alt="Bra&ccaron; island" class="w-full h-full object-cover">
+              <img src="images/tours/brac.jpg" alt="Bra&ccaron; island" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
             </div>
@@ -574,7 +587,7 @@
           <!-- 90min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
             <div class="relative h-48">
-              <img src="images/tours/peruca.jpg" alt="Lake Peru&ccaron;a" class="w-full h-full object-cover">
+              <img src="images/tours/peruca.jpg" alt="Lake Peru&ccaron;a" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
             </div>
@@ -592,7 +605,7 @@
           <!-- 120min -->
           <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
             <div class="relative h-48">
-              <img src="images/tours/hvar.jpg" alt="Hvar island" class="w-full h-full object-cover">
+              <img src="images/tours/hvar.jpg" alt="Hvar island" class="w-full h-full object-cover" loading="lazy">
               <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
               <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
             </div>
@@ -616,7 +629,7 @@
   <!-- ========== BLUE CAVE EXCLUSIVE ========== -->
   <section id="blue-cave" class="py-20 lg:py-28 bg-gradient-to-br from-brand-navy via-blue-900 to-brand-navy text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-20">
-      <img src="images/tours/modra-spilja.jpeg" alt="" class="w-full h-full object-cover">
+      <img src="images/tours/modra-spilja.jpeg" alt="" class="w-full h-full object-cover" loading="lazy">
     </div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-12" data-aos="fade-up">
@@ -719,121 +732,123 @@
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         <div class="gallery-item col-span-2 row-span-2" data-aos="zoom-in">
-          <img src="images/hero-fleet.png" alt="Gyrocopter fleet" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/hero-fleet.png" alt="Gyrocopter fleet" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/hvar.jpg" alt="Hvar" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/hvar.jpg" alt="Hvar" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/stiniva.jpg" alt="Stiniva Bay" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/stiniva.jpg" alt="Stiniva Bay" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/kornati.jpg" alt="Kornati" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/kornati.jpg" alt="Kornati" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/palmizana.jpg" alt="Palmizana" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/palmizana.jpg" alt="Palmizana" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/brac.jpg" alt="Bra&ccaron; island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/brac.jpg" alt="Bra&ccaron; island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/izvor-cetine.jpg" alt="Cetina Source" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/izvor-cetine.jpg" alt="Cetina Source" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/split/kapetanija.jpg" alt="Split aerial" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/split/kapetanija.jpg" alt="Split aerial" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/krka.jpg" alt="Krka National Park" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/krka.jpg" alt="Krka National Park" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/split/marjan-aerial.jpg" alt="Marjan Hill" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/split/marjan-aerial.jpg" alt="Marjan Hill" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/dinara.jpeg" alt="Dinara mountain" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/dinara.jpeg" alt="Dinara mountain" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/amphibious.jpg" alt="Amphibious gyrocopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/amphibious.jpg" alt="Amphibious gyrocopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <!-- Additional images -->
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/solta.jpg" alt="&Scaron;olta island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/solta.jpg" alt="&Scaron;olta island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/trogir.jpeg" alt="Trogir" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/trogir.jpeg" alt="Trogir" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/people/cool-grandpa.jpg" alt="Happy passenger" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/people/cool-grandpa.jpg" alt="Happy passenger" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/sibenik.jpg" alt="&Scaron;ibenik" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/sibenik.jpg" alt="&Scaron;ibenik" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/splitska-vrata.jpg" alt="Split Gate" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/splitska-vrata.jpg" alt="Split Gate" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/people/man-passenger.jpg" alt="Passenger enjoying flight" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/people/man-passenger.jpg" alt="Passenger enjoying flight" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/peruca.jpg" alt="Lake Peru&ccaron;a" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/peruca.jpg" alt="Lake Peru&ccaron;a" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/split/marjan-kozjak.jpg" alt="Marjan and Kozjak" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/split/marjan-kozjak.jpg" alt="Marjan and Kozjak" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/modra-spilja.jpeg" alt="Blue Cave" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/modra-spilja.jpeg" alt="Blue Cave" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/people/father-daughter.jpg" alt="Father and daughter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/people/father-daughter.jpg" alt="Father and daughter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/zlarin.jpg" alt="Zlarin" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/zlarin.jpg" alt="Zlarin" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/pilot-selfie.jpg" alt="Gyrocopter selfie" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/pilot-selfie.jpg" alt="Gyrocopter selfie" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/people/woman-passenger.jpg" alt="Woman in gyrocopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/people/woman-passenger.jpg" alt="Woman in gyrocopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/split/hotel-marjan.jpg" alt="Split Hotel Marjan view" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/split/hotel-marjan.jpg" alt="Split Hotel Marjan view" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/gallery/takeoff.png" alt="Takeoff" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/gallery/takeoff.png" alt="Takeoff" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/sinj-cetina.jpeg" alt="Sinj and Cetina" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/sinj-cetina.jpeg" alt="Sinj and Cetina" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/people/woman-before-flight.jpg" alt="Before the flight" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/people/woman-before-flight.jpg" alt="Before the flight" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/blue-cave-diving.webp" alt="Blue Cave diving" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/blue-cave-diving.webp" alt="Blue Cave diving" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/gallery/fleet-farmland.jpg" alt="Fleet over farmland" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/gallery/fleet-farmland.jpg" alt="Fleet over farmland" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/pilot-caricature.png" alt="Pilot above Split" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/pilot-caricature.png" alt="Pilot above Split" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/kanjon-cetine.jpeg" alt="Cetina Canyon" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/kanjon-cetine.jpeg" alt="Cetina Canyon" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/knin.jpeg" alt="Knin fortress" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/knin.jpeg" alt="Knin fortress" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
         <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/bisevo.jpeg" alt="Bi&scaron;evo island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition">
+          <img src="images/tours/bisevo.jpeg" alt="Bi&scaron;evo island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
         </div>
       </div>
     </div>
 
     <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4 cursor-pointer">
-      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain rounded-lg">
-      <button class="absolute top-4 right-4 text-white text-4xl hover:text-brand-accent transition">&times;</button>
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-accent transition z-10 bg-black/30 rounded-full w-14 h-14 flex items-center justify-center" aria-label="Previous image">&#8249;</button>
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain rounded-lg cursor-default">
+      <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-accent transition z-10 bg-black/30 rounded-full w-14 h-14 flex items-center justify-center" aria-label="Next image">&#8250;</button>
+      <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-brand-accent transition" aria-label="Close">&times;</button>
     </div>
   </section>
 
@@ -1005,8 +1020,9 @@
 
       <form action="https://formsubmit.co/tutafranko@gmail.com" method="POST" class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 space-y-6" data-aos="fade-up" data-aos-delay="200">
         <input type="hidden" name="_subject" value="New Booking - Horizon Airs Split">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://tutafranko-web.github.io/horizon-airs-split/#booking">
         <input type="text" name="_honey" style="display:none">
 
         <div class="grid sm:grid-cols-2 gap-6">
@@ -1116,15 +1132,33 @@
           </div>
         </div>
       </div>
-      <div class="border-t border-white/10 pt-8 text-center text-white/40 text-sm">
-        <p data-i18n="footer.copy">&copy; 2025 Horizon Airs Split. All rights reserved.</p>
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/40 text-sm" data-i18n="footer.copy">&copy; 2026 Horizon Airs Split. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="https://instagram.com/horizonairssplit" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://facebook.com/horizonairssplit" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 bg-brand-navy hover:bg-brand-sky text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 translate-y-4 pointer-events-none" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
+  <!-- WhatsApp Floating Button -->
+  <a id="whatsapp-btn" href="https://wa.me/385989876543?text=Hi%2C%20I%27d%20like%20to%20book%20a%20gyrocopter%20flight!" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 left-6 z-40 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Contact us on WhatsApp">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
   <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

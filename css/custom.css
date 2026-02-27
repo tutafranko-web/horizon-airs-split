@@ -9,6 +9,9 @@ html { scroll-behavior: smooth; }
   box-shadow: 0 2px 20px rgba(0,0,0,0.15);
 }
 
+/* Active nav link */
+.nav-link { transition: color 0.2s ease; }
+
 /* Tour tabs */
 .tour-tab.active {
   background-color: #1B4F8A !important;
@@ -22,6 +25,16 @@ html { scroll-behavior: smooth; }
 /* Gallery lightbox */
 #lightbox { display: none; }
 #lightbox.active { display: flex; }
+
+/* Lightbox prev/next buttons */
+#lightbox-prev, #lightbox-next {
+  opacity: 0.7;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+#lightbox-prev:hover, #lightbox-next:hover {
+  opacity: 1;
+  background-color: rgba(0,0,0,0.5);
+}
 
 /* Map containers */
 [id^="map-"] { z-index: 1; }
@@ -49,3 +62,17 @@ img { max-width: 100%; height: auto; }
 
 /* Selection color */
 ::selection { background: #2EA3F2; color: white; }
+
+/* Back to top button */
+#back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+/* WhatsApp button pulse animation */
+#whatsapp-btn {
+  animation: whatsappPulse 2s ease-in-out infinite;
+}
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
+}
