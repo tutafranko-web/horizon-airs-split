@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Blog — Horizon Airs Split</title>
+  <meta id="meta-description" name="description" content="Read about gyrocopter tours, safety, and aerial sightseeing over Dalmatia from Horizon Airs Split.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+  <meta name="theme-color" content="#1B4F8A">
+
+  <!-- OG tags (updated dynamically by JS) -->
+  <meta id="og-title" property="og:title" content="Blog — Horizon Airs Split">
+  <meta id="og-description" property="og:description" content="Gyrocopter tours and aviation insights from Split, Croatia.">
+  <meta id="og-image" property="og:image" content="https://flyabovesplit.com/images/hero-fleet.png">
+  <meta id="og-url" property="og:url" content="https://flyabovesplit.com/blog">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Horizon Airs Split">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { navy: '#1B4F8A', sky: '#2EA3F2', accent: '#F5A623', dark: '#1A1A2E' },
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <!-- BlogPosting Schema (populated dynamically) -->
+  <script id="blog-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "",
+    "description": "",
+    "image": "",
+    "author": {"@type": "Organization", "name": "Horizon Airs Split"},
+    "publisher": {"@type": "Organization", "name": "Horizon Airs Split", "logo": {"@type": "ImageObject", "url": "https://flyabovesplit.com/images/logo.png"}},
+    "datePublished": "",
+    "dateModified": "",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": ""}
+  }
+  </script>
+
+  <style>
+    /* Blog content typography */
+    .blog-content h2 { font-size: 1.5rem; font-weight: 700; color: #1B4F8A; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .blog-content h3 { font-size: 1.25rem; font-weight: 600; color: #1B4F8A; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .blog-content p { margin-bottom: 1rem; line-height: 1.75; color: #374151; }
+    .blog-content ul, .blog-content ol { margin-bottom: 1rem; padding-left: 1.5rem; color: #374151; }
+    .blog-content ul { list-style-type: disc; }
+    .blog-content ol { list-style-type: decimal; }
+    .blog-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+    .blog-content strong { color: #1B4F8A; }
+    .blog-content a { color: #2EA3F2; text-decoration: underline; }
+    .blog-content blockquote { border-left: 4px solid #F5A623; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #6B7280; }
+  </style>
+</head>
+<body class="font-sans text-brand-dark bg-white">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-brand-navy/95 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/images/logo.png" alt="Horizon Airs Split" class="h-12 lg:h-14 rounded-full">
+          <span class="hidden sm:block text-white font-bold text-lg tracking-wide">HORIZON AIRS</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="/" class="text-white/90 hover:text-white font-medium transition">Home</a>
+          <a href="/#about" class="text-white/90 hover:text-white font-medium transition">About</a>
+          <a href="/#pricing" class="text-white/90 hover:text-white font-medium transition">Pricing</a>
+          <a href="/#tours" class="text-white/90 hover:text-white font-medium transition">Tours</a>
+          <a href="/#blue-cave" class="text-white/90 hover:text-white font-medium transition">Blue Cave</a>
+          <a href="/blog" class="text-white font-medium transition border-b-2 border-brand-accent pb-1">Blog</a>
+          <a href="/#reviews" class="text-white/90 hover:text-white font-medium transition">Reviews</a>
+          <a href="/#faq" class="text-white/90 hover:text-white font-medium transition">FAQ</a>
+          <a href="/#booking" class="bg-brand-accent hover:bg-orange-500 text-white font-semibold px-5 py-2.5 rounded-full transition transform hover:scale-105">Book a Flight</a>
+        </div>
+        <div class="lg:hidden flex items-center gap-3">
+          <button id="mobile-menu-btn" class="text-white p-2" aria-label="Open menu">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="lg:hidden hidden bg-brand-navy/95 backdrop-blur-md border-t border-white/10">
+      <div class="px-4 py-4 space-y-3">
+        <a href="/" class="block text-white/90 hover:text-white font-medium py-2">Home</a>
+        <a href="/#about" class="block text-white/90 hover:text-white font-medium py-2">About</a>
+        <a href="/#pricing" class="block text-white/90 hover:text-white font-medium py-2">Pricing</a>
+        <a href="/#tours" class="block text-white/90 hover:text-white font-medium py-2">Tours</a>
+        <a href="/#blue-cave" class="block text-white/90 hover:text-white font-medium py-2">Blue Cave</a>
+        <a href="/blog" class="block text-white font-bold py-2">Blog</a>
+        <a href="/#reviews" class="block text-white/90 hover:text-white font-medium py-2">Reviews</a>
+        <a href="/#faq" class="block text-white/90 hover:text-white font-medium py-2">FAQ</a>
+        <a href="/#booking" class="block bg-brand-accent text-white font-semibold text-center py-3 rounded-full mt-2">Book a Flight</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-20 lg:pt-24">
+
+    <!-- Loading state -->
+    <div id="post-loading" class="text-center py-32">
+      <div class="inline-block w-8 h-8 border-4 border-brand-navy/20 border-t-brand-navy rounded-full animate-spin"></div>
+      <p class="text-gray-500 mt-4">Loading article...</p>
+    </div>
+
+    <!-- Post content (hidden until loaded) -->
+    <article id="post-article" class="hidden">
+      <!-- Hero image -->
+      <div id="post-hero" class="relative h-64 sm:h-80 lg:h-96 bg-brand-navy">
+        <img id="post-image" src="" alt="" class="w-full h-full object-cover opacity-80">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      </div>
+
+      <!-- Article body -->
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-10">
+        <div class="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
+          <!-- Breadcrumb -->
+          <nav class="mb-6 text-sm">
+            <a href="/" class="text-brand-sky hover:text-brand-navy transition">Home</a>
+            <span class="text-gray-400 mx-2">/</span>
+            <a href="/blog" class="text-brand-sky hover:text-brand-navy transition">Blog</a>
+            <span class="text-gray-400 mx-2">/</span>
+            <span id="post-breadcrumb" class="text-gray-500"></span>
+          </nav>
+
+          <!-- Meta -->
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span id="post-category" class="bg-brand-navy text-white text-xs font-bold px-3 py-1 rounded-full"></span>
+            <span id="post-date" class="text-sm text-gray-400"></span>
+            <span class="text-sm text-gray-400">&bull;</span>
+            <span id="post-author" class="text-sm text-gray-400"></span>
+          </div>
+
+          <!-- Title -->
+          <h1 id="post-title" class="text-3xl sm:text-4xl font-black text-brand-navy leading-tight mb-6"></h1>
+
+          <!-- Excerpt -->
+          <p id="post-excerpt" class="text-lg text-gray-500 mb-8 border-l-4 border-brand-accent pl-4"></p>
+
+          <!-- Content -->
+          <div id="post-content" class="blog-content"></div>
+
+          <!-- Tags -->
+          <div id="post-tags" class="mt-8 pt-6 border-t border-gray-200 flex flex-wrap gap-2"></div>
+
+          <!-- CTA -->
+          <div class="mt-10 bg-gradient-to-br from-brand-navy to-blue-900 text-white rounded-2xl p-8 text-center">
+            <h3 class="text-2xl font-bold mb-3">Ready to See Dalmatia from Above?</h3>
+            <p class="text-white/80 mb-6">Book your gyrocopter flight over Split, the islands, and the mountains. Prices from &euro;75.</p>
+            <a href="/#booking" class="inline-block bg-brand-accent hover:bg-orange-500 text-white font-bold px-8 py-4 rounded-full transition transform hover:scale-105">Book Your Flight</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related posts -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="text-2xl font-bold text-brand-navy mb-8 text-center">More Articles</h2>
+        <div id="related-posts" class="grid md:grid-cols-3 gap-6"></div>
+      </div>
+    </article>
+
+    <!-- 404 state -->
+    <div id="post-404" class="hidden text-center py-32">
+      <div class="text-6xl mb-4">&#128269;</div>
+      <h2 class="text-2xl font-bold text-brand-navy mb-2">Article not found</h2>
+      <p class="text-gray-500 mb-6">The article you're looking for doesn't exist or has been moved.</p>
+      <a href="/blog" class="inline-block bg-brand-accent hover:bg-orange-500 text-white font-semibold px-6 py-3 rounded-full transition">Back to Blog</a>
+    </div>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-brand-dark text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <img src="/images/logo.png" alt="Horizon Airs Split" class="h-16 rounded-full mb-4">
+          <p class="text-white/60 text-sm">Panoramic gyrocopter flights over Dalmatia. The safest aircraft, certified pilots, unforgettable views.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <div class="space-y-2 text-white/70 text-sm">
+            <p>tutafranko@gmail.com</p>
+            <p>Split Harbor &bull; Piket Airfield, Sinj</p>
+            <p>Split-Dalmatia County, Croatia</p>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <div class="space-y-2 text-white/70 text-sm">
+            <a href="/#tours" class="block hover:text-white transition">Our Tours</a>
+            <a href="/#pricing" class="block hover:text-white transition">Pricing</a>
+            <a href="/blog" class="block hover:text-white transition">Blog</a>
+            <a href="/#booking" class="block hover:text-white transition">Booking</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Safety</h4>
+          <div class="space-y-2 text-white/70 text-sm">
+            <p>CCAA &mdash; Croatian Civil Aviation Agency</p>
+            <p>EASA &mdash; European Aviation Safety Agency</p>
+            <p>AutoGyro MTO 914 / Rotax 914</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-white/40 text-sm">&copy; 2026 Horizon Airs Split. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="https://instagram.com/horizonairssplit" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://facebook.com/horizonairssplit" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Post JS -->
+  <script>
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      document.addEventListener('click', (e) => {
+        if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    }
+
+    // Get slug from URL path
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const slug = pathParts[pathParts.length - 1];
+
+    async function loadPost() {
+      const loading = document.getElementById('post-loading');
+      const article = document.getElementById('post-article');
+      const notFound = document.getElementById('post-404');
+
+      try {
+        const res = await fetch('/data/blog-posts.json');
+        const posts = await res.json();
+        const post = posts.find(p => p.slug === slug);
+
+        loading.classList.add('hidden');
+
+        if (!post) {
+          notFound.classList.remove('hidden');
+          return;
+        }
+
+        // Populate page
+        const date = new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        const img = post.image_url || '/images/hero-fleet.png';
+
+        document.getElementById('page-title').textContent = post.title + ' — Horizon Airs Split Blog';
+        document.getElementById('meta-description').setAttribute('content', post.excerpt);
+        document.getElementById('og-title').setAttribute('content', post.title);
+        document.getElementById('og-description').setAttribute('content', post.excerpt);
+        document.getElementById('og-image').setAttribute('content', 'https://flyabovesplit.com' + img);
+        document.getElementById('og-url').setAttribute('content', 'https://flyabovesplit.com/blog/' + post.slug);
+
+        document.getElementById('post-image').src = img;
+        document.getElementById('post-image').alt = post.title;
+        document.getElementById('post-breadcrumb').textContent = post.title.length > 50 ? post.title.substring(0, 50) + '...' : post.title;
+        document.getElementById('post-category').textContent = post.category || 'Article';
+        document.getElementById('post-date').textContent = date;
+        document.getElementById('post-author').textContent = post.author || 'Horizon Airs Split';
+        document.getElementById('post-title').textContent = post.title;
+        document.getElementById('post-excerpt').textContent = post.excerpt;
+        document.getElementById('post-content').innerHTML = post.content;
+
+        // Tags
+        const tagsEl = document.getElementById('post-tags');
+        if (post.tags && post.tags.length > 0) {
+          tagsEl.innerHTML = post.tags.map(tag =>
+            `<span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">#${tag}</span>`
+          ).join('');
+        }
+
+        // Update schema
+        const schema = JSON.parse(document.getElementById('blog-schema').textContent);
+        schema.headline = post.title;
+        schema.description = post.excerpt;
+        schema.image = 'https://flyabovesplit.com' + img;
+        schema.datePublished = post.created_at;
+        schema.dateModified = post.updated_at || post.created_at;
+        schema.mainEntityOfPage['@id'] = 'https://flyabovesplit.com/blog/' + post.slug;
+        document.getElementById('blog-schema').textContent = JSON.stringify(schema);
+
+        // Related posts (up to 3 others from same category or random)
+        const related = posts
+          .filter(p => p.slug !== post.slug && p.published)
+          .sort((a, b) => (a.category === post.category ? -1 : 1))
+          .slice(0, 3);
+
+        const relatedEl = document.getElementById('related-posts');
+        if (related.length > 0) {
+          relatedEl.innerHTML = related.map(p => {
+            const d = new Date(p.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            const i = p.image_url || '/images/hero-fleet.png';
+            return `
+              <a href="/blog/${p.slug}" class="group block bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition">
+                <div class="relative h-40 overflow-hidden">
+                  <img src="${i}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" loading="lazy">
+                  <span class="absolute top-3 left-3 bg-brand-navy text-white text-xs font-bold px-3 py-1 rounded-full">${p.category || 'Article'}</span>
+                </div>
+                <div class="p-5">
+                  <p class="text-xs text-gray-400 mb-1">${d}</p>
+                  <h3 class="text-base font-bold text-brand-navy group-hover:text-brand-sky transition line-clamp-2">${p.title}</h3>
+                </div>
+              </a>
+            `;
+          }).join('');
+        }
+
+        article.classList.remove('hidden');
+      } catch (err) {
+        loading.classList.add('hidden');
+        notFound.classList.remove('hidden');
+        console.error('Failed to load post:', err);
+      }
+    }
+
+    loadPost();
+  </script>
+</body>
+</html>
