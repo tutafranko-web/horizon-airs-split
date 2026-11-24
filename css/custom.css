@@ -70,12 +70,3 @@ img { max-width: 100%; height: auto; }
 #back-to-top {
   transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
 }
-
-/* WhatsApp button pulse animation */
-#whatsapp-btn {
-  animation: whatsappPulse 2s ease-in-out infinite;
-}
-@keyframes whatsappPulse {
-  0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
-  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6); }
-}

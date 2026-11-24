@@ -66,7 +66,7 @@
       '.cc-open #back-to-top{bottom:calc(var(--cc-h,0px) + 40px)!important}' +
     '}' +
     '@media (max-width:1279px){' +
-      '.cc-open #whatsapp-btn,.cc-open #back-to-top{bottom:calc(var(--cc-h,0px) + 16px)!important}' +
+      '.cc-open #back-to-top{bottom:calc(var(--cc-h,0px) + 16px)!important}' +
     '}' +
     '@media print{.cc{display:none}}';
 
