@@ -1,6 +1,9 @@
 /* Smooth scroll */
 html { scroll-behavior: smooth; }
 
+/* Side-sliding AOS blocks wait off-screen; without this the page is wider than a phone */
+main > section { overflow-x: hidden; overflow-x: clip; }
+
 /* Navbar states */
 #navbar { background: transparent; }
 #navbar.scrolled {
