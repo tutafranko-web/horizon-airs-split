@@ -4,7 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Cookie consent + Google Analytics 4 (G-H1C6F7HY86), see js/consent.js -->
-  <script src="/js/consent.js?v=1" defer></script>
+  <script src="/js/consent.js?v=2" defer></script>
+  <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="/images/film/hero/l/001.webp" media="(min-width:821px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/film/hero/s/001.webp" media="(max-width:820px)" fetchpriority="high">
+  <link rel="stylesheet" href="/css/site.css?v=1">
+  <script src="/js/lenis.min.js?v=1" defer></script>
+  <script src="/js/chart-data.js?v=1" defer></script>
+  <script src="/js/site.js?v=1" defer></script>
   <title>Horizon Airs Split — Panoramic Gyrocopter Flights Over Dalmatia</title>
   <meta name="description" content="Book panoramic gyrocopter flights over Split, Croatia. Aerial tours of Dalmatian islands, Blue Cave, Hvar, Brač & Kornati from €75. EASA-certified pilots. The most unique sightseeing experience in Split.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -18,7 +25,7 @@
   <meta name="geo.placename" content="Split">
   <meta name="geo.position" content="43.5081;16.4402">
   <meta name="ICBM" content="43.5081, 16.4402">
-  <meta name="theme-color" content="#1B4F8A">
+  <meta name="theme-color" content="#062338">
   <link rel="canonical" href="https://flyabovesplit.com/">
   <link rel="alternate" hreflang="en" href="https://flyabovesplit.com/">
   <link rel="alternate" hreflang="hr" href="https://flyabovesplit.com/">
@@ -27,13 +34,11 @@
   <link rel="apple-touch-icon" href="/images/logo.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary">
-  <link rel="preload" as="image" href="images/hero-fleet.png">
-  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Horizon Airs Split — Panoramic Gyrocopter Flights Over Dalmatia">
   <meta property="og:description" content="Experience Split, the islands and the hinterland from a bird's eye view. The safest aircraft, certified pilots, European safety standards.">
-  <meta property="og:image" content="https://flyabovesplit.com/images/hero-fleet.png">
+  <meta property="og:image" content="https://flyabovesplit.com/images/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://flyabovesplit.com/">
@@ -44,35 +49,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Horizon Airs Split — Panoramic Gyrocopter Flights">
   <meta name="twitter:description" content="Experience Dalmatia from a bird's eye view in the safest aircraft in the world.">
-  <meta name="twitter:image" content="https://flyabovesplit.com/images/hero-fleet.png">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { navy: '#1B4F8A', sky: '#2EA3F2', accent: '#F5A623', dark: '#1A1A2E' },
-          },
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
-
-  <!-- AOS Animate On Scroll -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous"/>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/custom.css?v=2">
+  <meta name="twitter:image" content="https://flyabovesplit.com/images/og.jpg">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -523,1132 +500,419 @@
   </script>
 
 </head>
-<body class="font-sans text-brand-dark bg-white">
+<body>
+  <a class="skip" href="#tours" data-i18n="skip">Skip to the routes</a>
 
-  <!-- ========== NAVIGATION ========== -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-20">
-        <a href="#home" class="flex items-center gap-3">
-          <img src="images/logo.png" alt="Horizon Airs Split" class="h-12 lg:h-14 rounded-full">
-          <span class="hidden sm:block text-white font-bold text-lg tracking-wide">HORIZON AIRS</span>
-        </a>
-        <div class="hidden lg:flex items-center gap-8">
-          <a href="#home" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.home">Home</a>
-          <a href="#about" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.about">About</a>
-          <a href="#pricing" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.pricing">Pricing</a>
-          <a href="#tours" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.tours">Tours</a>
-          <a href="#blue-cave" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.bluecave">Blue Cave</a>
-          <a href="#reviews" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.reviews">Reviews</a>
-          <a href="#gallery" class="nav-link text-white/90 hover:text-white font-medium transition" data-i18n="nav.gallery">Gallery</a>
-          <a href="/blog" class="nav-link text-white/90 hover:text-white font-medium transition">Blog</a>
-          <a href="#faq" class="nav-link text-white/90 hover:text-white font-medium transition">FAQ</a>
-          <!-- Language Toggle -->
-          <button id="lang-toggle" class="text-white/80 hover:text-white font-semibold text-sm border border-white/30 rounded-full px-3 py-1.5 transition hover:bg-white/10" title="Switch language">
-            HR &#127469;&#127479;
-          </button>
-          <a href="#booking" class="bg-brand-accent hover:bg-orange-500 text-white font-semibold px-5 py-2.5 rounded-full transition transform hover:scale-105" data-i18n="nav.book">Book a Flight</a>
-        </div>
-        <div class="lg:hidden flex items-center gap-3">
-          <button id="lang-toggle-mobile" class="text-white/80 hover:text-white font-semibold text-xs border border-white/30 rounded-full px-2.5 py-1 transition" title="Switch language">
-            HR &#127469;&#127479;
-          </button>
-          <button id="mobile-menu-btn" class="text-white p-2" aria-label="Open menu">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-brand-navy/95 backdrop-blur-md border-t border-white/10">
-      <div class="px-4 py-4 space-y-3">
-        <a href="#home" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.home">Home</a>
-        <a href="#about" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.about">About</a>
-        <a href="#pricing" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.pricing">Pricing</a>
-        <a href="#tours" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.tours">Tours</a>
-        <a href="#blue-cave" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.bluecave">Blue Cave</a>
-        <a href="#reviews" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.reviews">Reviews</a>
-        <a href="#gallery" class="block text-white/90 hover:text-white font-medium py-2 mobile-link" data-i18n="nav.gallery">Gallery</a>
-        <a href="/blog" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">Blog</a>
-        <a href="#faq" class="block text-white/90 hover:text-white font-medium py-2 mobile-link">FAQ</a>
-        <a href="#booking" class="block bg-brand-accent text-white font-semibold text-center py-3 rounded-full mt-2" data-i18n="nav.book">Book a Flight</a>
-      </div>
-    </div>
-  </nav>
+  <header class="top" id="top">
+    <a class="brand" href="#home"><img src="/images/logo-znak.webp" width="320" height="320" alt="Horizon Airs Split"><span aria-hidden="true">Horizon Airs Split</span></a>
+    <nav class="links" id="meni" aria-label="Main">
+      <a href="#about" data-i18n="nav.pre">Before takeoff</a>
+      <a href="#tours" data-i18n="nav.tours">Routes</a>
+      <a href="#pricing" data-i18n="nav.price">Prices</a>
+      <a href="#gallery" data-i18n="nav.gallery">Photos</a>
+      <a href="#faq" data-i18n="nav.faq">Questions</a>
+    </nav>
+    <button type="button" class="lang" id="lang-toggle" aria-label="Prebaci na hrvatski" lang="hr">HR</button>
+    <a class="btn" href="#booking" data-i18n="nav.book">Book a flight</a>
+    <button type="button" class="burger" aria-expanded="false" aria-controls="meni" aria-label="Menu"><i></i><i></i></button>
+  </header>
 
   <main>
-
-  <!-- SEO: Answer-first content for LLMs and Google AI Overviews (visually hidden, fully crawlable) -->
-  <article class="sr-only" aria-label="About Horizon Airs Split">
-    <h2>Gyrocopter Tours in Split, Croatia — Horizon Airs Split</h2>
-    <p>Horizon Airs Split offers panoramic gyrocopter flights over Dalmatia, Croatia, making it one of the most unique sightseeing experiences in Split. Operating from Split Harbor (coastal routes) and Piket Airfield near Sinj (mountain routes), the company provides 18 different aerial tour routes ranging from a 15-minute Split Skyline Flight (€75) to a 2-hour Royal Adriatic Flight (€470) covering Brač, Hvar, Vis, and the famous Blue Cave on Biševo. All flights use AutoGyro Cavalon gyrocopters — the safest ultralight aircraft in the world — piloted by EASA and CCAA-certified professionals. Gyrocopters fly at 300–1500m altitude at 80–130 km/h with open cockpits, giving passengers an unobstructed 360° panoramic view. The company accepts EUR payments via cash, credit card, Revolut, Aircash, and Bitcoin. Flights operate daily from 08:00–20:00, weather permitting.</p>
-    <h3>Things to Do in Split, Croatia — Best Aerial Sightseeing Experience</h3>
-    <p>Split is Croatia's second-largest city and the gateway to the Dalmatian islands. As one of the most popular tourist destinations in the Mediterranean, Split offers visitors hundreds of activities — from exploring the UNESCO-listed Diocletian's Palace to island hopping across Brač, Hvar, and Vis. A gyrocopter flight from Horizon Airs provides the only way to see all of Split and the surrounding islands in a single experience, combining the thrill of flight with panoramic coastal views that no boat tour or bus excursion can match.</p>
-    <h3>Adventure Activities in Split — Why Choose a Gyrocopter Tour?</h3>
-    <p>Among the many adventure activities available in Split — including rafting on the Cetina River, zip-lining in Omiš, kayaking around Marjan Hill, and island boat tours — a gyrocopter flight stands out as the most exclusive and memorable experience. Unlike helicopter tours, gyrocopters fly lower and slower with open cockpits, providing unobstructed views and a more intimate connection with the landscape. Prices start at just €75 for a 15-minute flight, making it accessible for most tourists visiting Split.</p>
-  </article>
-
-  <!-- ========== HERO SECTION ========== -->
-  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="images/hero-fleet.png" alt="Horizon Airs gyrocopter fleet flying over Split Croatia and the Dalmatian islands coastline" class="w-full h-full object-cover" loading="lazy">
-      <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-brand-navy/30 to-brand-navy/80"></div>
-    </div>
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <img src="images/logo.png" alt="Horizon Airs Split logo" class="w-32 h-32 mx-auto mb-8 rounded-full shadow-2xl" data-aos="zoom-in" data-aos-duration="800">
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6" data-aos="fade-up" data-aos-delay="200">
-        <span data-i18n="hero.line1">Panoramic Flights</span><br>
-        <span class="text-brand-accent" data-i18n="hero.line2">by Gyrocopter</span><br>
-        <span data-i18n="hero.line3">Over Dalmatia</span>
-      </h1>
-      <p class="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="400" data-i18n="hero.sub">
-        Experience Split, the islands and the mountains from a bird's eye view &mdash; in the safest aircraft in the world
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
-        <a href="#booking" class="bg-brand-accent hover:bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-full transition transform hover:scale-105 shadow-lg" data-i18n="hero.cta1">
-          Book a Flight
-        </a>
-        <a href="#tours" class="border-2 border-white/60 hover:border-white text-white font-semibold text-lg px-8 py-4 rounded-full transition hover:bg-white/10" data-i18n="hero.cta2">
-          Explore Tours
-        </a>
-      </div>
-    </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-    </div>
-  </section>
-
-  <!-- ========== ABOUT GYROCOPTER ========== -->
-  <section id="about" class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4" data-i18n="about.title">Why Gyrocopter?</h2>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto" data-i18n="about.sub">The most enjoyable and safest way to fly</p>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
-        <div data-aos="fade-right">
-          <div class="space-y-6 text-gray-700 leading-relaxed">
-            <p class="text-lg" data-i18n="about.p1">A gyrocopter &mdash; or autogyro &mdash; combines the freedom of a helicopter with the elegance of an airplane in a unique flying experience. Unlike a helicopter, the gyrocopter's rotor is not powered by an engine but spins freely thanks to the airflow.</p>
-            <p class="text-lg" data-i18n="about.p2">This means that even if the engine stops, <strong class="text-brand-navy">a gyrocopter doesn't fall</strong> &mdash; it glides safely to the ground thanks to a natural phenomenon called <strong class="text-brand-navy">autorotation</strong>.</p>
-            <p class="text-lg" data-i18n="about.p3">That is why gyrocopters around the world are considered <strong class="text-brand-navy">one of the safest aircraft ever produced</strong>.</p>
-            <p class="text-lg" data-i18n="about.p4">They fly smoothly, stably and predictably &mdash; even in windy conditions &mdash; while offering passengers an incredibly clear and open view of the landscape.</p>
-            <p class="text-lg font-medium text-brand-navy" data-i18n="about.p5">It is precisely this combination of safety, freedom and unobstructed views that makes every flight with Horizon Airs Split a special experience you will remember forever.</p>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
-          <img src="images/pilot-caricature.png" alt="Certified gyrocopter pilot flying above Split Croatia" class="rounded-2xl shadow-xl w-full h-64 object-cover" loading="lazy">
-          <img src="images/pilot-selfie.jpg" alt="Passenger selfie during gyrocopter sightseeing flight over Dalmatia" class="rounded-2xl shadow-xl w-full h-64 object-cover" loading="lazy">
-          <img src="images/amphibious.jpg" alt="AutoGyro Cavalon amphibious gyrocopter used for aerial tours in Split Croatia" class="rounded-2xl shadow-xl w-full h-64 object-cover col-span-2" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Stats -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" data-aos="fade-up">
-        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
-          <div class="text-4xl mb-3">&#128737;</div>
-          <h3 class="font-bold text-lg mb-1" data-i18n="about.stat1t">Safest Aircraft</h3>
-          <p class="text-white/80 text-sm" data-i18n="about.stat1d">Autorotation = safe landing always</p>
-        </div>
-        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
-          <div class="text-4xl mb-3">&#9968;</div>
-          <h3 class="font-bold text-lg mb-1" data-i18n="about.stat2t">300-600m Altitude</h3>
-          <p class="text-white/80 text-sm" data-i18n="about.stat2d">Perfect view of Dalmatia</p>
-        </div>
-        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
-          <div class="text-4xl mb-3">&#9992;</div>
-          <h3 class="font-bold text-lg mb-1" data-i18n="about.stat3t">Certified Pilots</h3>
-          <p class="text-white/80 text-sm" data-i18n="about.stat3d">Licensed professionals, European standards</p>
-        </div>
-        <div class="bg-gradient-to-br from-brand-navy to-brand-sky text-white rounded-2xl p-6 text-center">
-          <div class="text-4xl mb-3">&#9989;</div>
-          <h3 class="font-bold text-lg mb-1" data-i18n="about.stat4t">EASA Compliant</h3>
-          <p class="text-white/80 text-sm" data-i18n="about.stat4d">All flights meet European aviation standards</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PRICING ========== -->
-  <section id="pricing" class="py-20 lg:py-28 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4" data-i18n="price.title">Flight Pricing</h2>
-        <p class="text-lg text-gray-500" data-i18n="price.sub">Simple pricing &mdash; no hidden costs</p>
-      </div>
-
-      <!-- Standard Flights -->
-      <div class="mb-12">
-        <h3 class="text-2xl font-bold text-brand-navy text-center mb-8" data-aos="fade-up" data-i18n="price.standard">Standard Panoramic Flights</h3>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-white rounded-2xl shadow-lg p-6 text-center border-2 border-transparent hover:border-brand-sky transition">
-            <p class="text-sm text-gray-500 mb-1" data-i18n="price.min15">15 minutes</p>
-            <p class="text-4xl font-black text-brand-navy">75&euro;</p>
-            <p class="text-sm text-gray-400 mt-1" data-i18n="price.pp">per person</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-6 text-center border-2 border-transparent hover:border-brand-sky transition">
-            <p class="text-sm text-gray-500 mb-1" data-i18n="price.min30">30 minutes</p>
-            <p class="text-4xl font-black text-brand-navy">150&euro;</p>
-            <p class="text-sm text-gray-400 mt-1" data-i18n="price.pp">per person</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-6 text-center border-2 border-transparent hover:border-brand-sky transition">
-            <p class="text-sm text-gray-500 mb-1" data-i18n="price.min45">45 minutes</p>
-            <p class="text-4xl font-black text-brand-navy">225&euro;</p>
-            <p class="text-sm text-gray-400 mt-1" data-i18n="price.pp">per person</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-6 text-center border-2 border-brand-accent relative">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full" data-i18n="price.popular">MOST POPULAR</span>
-            <p class="text-sm text-gray-500 mb-1" data-i18n="price.min60">60 minutes</p>
-            <p class="text-4xl font-black text-brand-navy">250&euro;</p>
-            <p class="text-sm text-gray-400 mt-1" data-i18n="price.pp">per person</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-6 text-center border-2 border-transparent hover:border-brand-sky transition">
-            <p class="text-sm text-gray-500 mb-1" data-i18n="price.min90">90 minutes</p>
-            <p class="text-4xl font-black text-brand-navy">375&euro;</p>
-            <p class="text-sm text-gray-400 mt-1" data-i18n="price.pp">per person</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-lg p-6 text-center border-2 border-transparent hover:border-brand-sky transition">
-            <p class="text-sm text-gray-500 mb-1" data-i18n="price.min120">120 minutes</p>
-            <p class="text-4xl font-black text-brand-navy">470&euro;</p>
-            <p class="text-sm text-gray-400 mt-1" data-i18n="price.pp">per person</p>
+    <section class="scene hero" id="home" data-shots="hero:72:36" data-weights="1">
+      <div class="stage">
+        <div class="film"><picture class="poster"><source media="(max-width:820px)" srcset="/images/film/hero/s/001.webp"><img src="/images/film/hero/l/001.webp" width="1280" height="720" alt="Yellow open-cockpit gyrocopter in flight with a pilot and a passenger" fetchpriority="high"></picture><canvas aria-hidden="true"></canvas></div>
+        <div class="hero-text">
+          <h1 data-i18n="hero.h1">Fly above <span>Split</span></h1>
+          <div class="hero-row">
+            <p data-i18n="hero.sub">Gyrocopter flights over the islands, the coast and the mountains of Dalmatia. 15 to 120 minutes, from 75 € per person.</p>
+            <div class="cta"><a class="btn" href="#booking" data-i18n="hero.c1">Book a flight</a><a class="btn ghost" href="#tours" data-i18n="hero.c2">Choose a route</a></div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Private Charter -->
-      <div class="grid md:grid-cols-2 gap-6 mb-10" data-aos="fade-up" data-aos-delay="200">
-        <div class="bg-gradient-to-br from-brand-navy to-blue-900 text-white rounded-2xl shadow-lg p-8">
-          <div class="text-3xl mb-3">&#9992;&#65039;</div>
-          <h3 class="text-xl font-bold mb-3" data-i18n="price.privatetitle">Private Charter Flights</h3>
-          <p class="text-white/80 mb-4" data-i18n="price.privatedesc">Exclusive flights for couples, special events, romantic proposals, business promo shoots and custom routes. Fly in formation with our fleet for a truly unique experience.</p>
-          <ul class="space-y-2 text-white/90 text-sm">
-            <li class="flex items-center gap-2"><span class="text-brand-accent">&#10003;</span> <span data-i18n="price.pf1">Custom route planning</span></li>
-            <li class="flex items-center gap-2"><span class="text-brand-accent">&#10003;</span> <span data-i18n="price.pf2">Couples &amp; formation flights</span></li>
-            <li class="flex items-center gap-2"><span class="text-brand-accent">&#10003;</span> <span data-i18n="price.pf3">Photo &amp; video production flights</span></li>
-            <li class="flex items-center gap-2"><span class="text-brand-accent">&#10003;</span> <span data-i18n="price.pf4">Gift vouchers available (12 months validity)</span></li>
-          </ul>
-          <a href="#booking" class="inline-block mt-6 bg-brand-accent hover:bg-orange-500 text-white font-semibold px-6 py-3 rounded-full transition" data-i18n="price.privatecta">Contact Us for Custom Pricing</a>
+    <section class="scene pre" id="about" data-shots="helm:22:11,mot:18:9,pre4:42:21" data-weights="30,29,41">
+      <div class="stage">
+        <div class="pre-text">
+          <h2 data-i18n="pre.h">Before takeoff</h2>
+          <ol class="checklist">
+          <li class="is-on"><div class="row"><span class="item" data-i18n="pre.0">Helmet and headset</span><span class="dots" aria-hidden="true"></span><span class="state" data-i18n="pre.s0">On</span></div><p data-i18n="pre.d0">Both are included in the price. You and your pilot talk over the headset the whole way. The pilot explains everything before takeoff and flies the whole route, so you need no experience.</p></li>
+          <li><div class="row"><span class="item" data-i18n="pre.2">Engine</span><span class="dots" aria-hidden="true"></span><span class="state" data-i18n="pre.s2">Running</span></div><p data-i18n="pre.d2">The Rotax 914 drives the propeller behind the seats. That propeller pushes the gyrocopter forward.</p></li>
+          <li><div class="row"><span class="item" data-i18n="pre.3">Rotor</span><span class="dots" aria-hidden="true"></span><span class="state" data-i18n="pre.s3">Turning</span></div><p data-i18n="pre.d3">The engine does not drive the big rotor in flight. Air turns it, and it keeps turning if the engine stops, so the pilot can glide down to land. This is called autorotation.</p></li>
+          </ol>
         </div>
-        <div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-brand-sky">
-          <div class="text-3xl mb-3">&#127909;</div>
-          <h3 class="text-xl font-bold text-brand-navy mb-3" data-i18n="price.gopro.title">GoPro Filming</h3>
-          <p class="text-gray-600 mb-4" data-i18n="price.gopro.desc">Professional GoPro Hero &amp; GoPro 360 camera recording of your flight. Relive every moment of your adventure from the sky.</p>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="text-4xl font-black text-brand-navy">20&euro;</span>
-            <span class="text-gray-500" data-i18n="price.gopro.per">per recording</span>
-          </div>
-          <p class="text-brand-navy font-semibold text-sm" data-i18n="price.gopro.free">FREE for all flights 90 minutes or longer!</p>
-          <div class="mt-6 bg-gray-50 rounded-xl p-4 text-sm text-gray-600" data-i18n="price.note">
-            All prices include flight costs, equipment, helmet, communication system and pilot briefing. We recommend not using personal phones during the flight &mdash; our GoPro recording ensures the best footage without any risk.
-          </div>
+        <div class="film"><picture class="poster"><source media="(max-width:820px)" srcset="/images/film/helm/s/001.webp"><img src="/images/film/helm/l/001.webp" width="1280" height="720" alt="Pilot adjusting the headset over a helmet" loading="lazy"></picture><canvas aria-hidden="true"></canvas></div>
+      </div>
+    </section>
+
+    <section class="scene fly" id="flight" data-shots="air1:76:38,air2:97:49,air3:69:35" data-weights="30,40,30" data-fade="0.09">
+      <div class="stage">
+        <div class="film"><picture class="poster"><source media="(max-width:820px)" srcset="/images/film/air1/s/001.webp"><img src="/images/film/air1/l/001.webp" width="1280" height="720" alt="Gyrocopter flying towards the camera above a valley" loading="lazy"></picture><canvas aria-hidden="true"></canvas></div>
+        <p class="alt" aria-hidden="true"><span data-i18n="fly.alt">Altitude</span><b>0</b><i>m</i></p>
+        <div class="caps">
+          <p class="is-on" data-i18n="fly.1">Coastal and mountain routes leave from Split, six more from Piket airfield near Sinj.</p>
+          <p data-i18n="fly.2">We usually fly at 300 to 600 metres, depending on the route and the weather.</p>
+          <p data-i18n="fly.3">Two seats in each aircraft, yours and the pilot's. Couples and groups fly side by side in formation.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== TOURS ========== -->
-  <section id="tours" class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4" data-i18n="tours.title">Aerial Tours of the Dalmatian Islands</h2>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto" data-i18n="tours.sub">Choose your adventure &mdash; coastal routes, mountain panoramas or flights from Sinj</p>
-        <p class="text-sm text-gray-400 max-w-3xl mx-auto mt-3">The best way to see Split from above &mdash; 18 unique gyrocopter sightseeing routes across Dalmatia's islands, mountains and coastline</p>
-      </div>
-
-      <!-- Tour Category Tabs -->
-      <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="100">
-        <button class="tour-tab active bg-brand-navy text-white font-semibold px-6 py-3 rounded-full transition" data-tab="morski" data-i18n="tours.tabsea">Coastal Routes</button>
-        <button class="tour-tab bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition hover:bg-gray-300" data-tab="planinski" data-i18n="tours.tabmount">Mountain Routes</button>
-        <button class="tour-tab bg-gray-200 text-gray-700 font-semibold px-6 py-3 rounded-full transition hover:bg-gray-300" data-tab="sinj" data-i18n="tours.tabsinj">Sinj Routes</button>
-      </div>
-
-      <!-- COASTAL TOURS -->
-      <div id="tab-morski" class="tour-panel">
-        <p class="text-center text-gray-500 mb-8" data-i18n="tours.seadep">Departure: <strong>Split Harbor</strong> &mdash; Flights over the islands and coastline</p>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- 15min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/split.jpg" alt="Aerial view of Split Croatia with Diocletian's Palace and Riva promenade from gyrocopter" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">15 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">75 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Split Skyline Flight</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sea15.desc">A short but unforgettable flight showing Split from its most special angle &mdash; from the air. As the gyrocopter lifts off above the ferry port, a panoramic view of the Riva, Diocletian's Palace and Marjan Hill unfolds before you.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Marjan &rarr; Ka&scaron;tela Bay &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sea-15" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"I never thought Split could look so different from above!" &mdash; <strong>Ana K.</strong>, Zagreb</blockquote>
-            </div>
-          </div>
-
-          <!-- 30min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/trogir.jpeg" alt="Aerial view of UNESCO-listed Trogir old town from gyrocopter tour" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">30 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">150 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Island &amp; City</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sea30.desc">This tour takes you above Split, &Ccaron;iovo and Trogir &mdash; three jewels of Dalmatia. In just half an hour you'll fly over the cultural symbols of the Adriatic and experience the contrast of ancient stone towns and the blue sea.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Marjan &rarr; &Ccaron;iovo &rarr; Trogir (UNESCO) &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sea-30" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Beautiful experience! I saw Trogir, &Ccaron;iovo and Split from the air in just half an hour." &mdash; <strong>Luca F.</strong>, Italy</blockquote>
-            </div>
-          </div>
-
-          <!-- 45min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/blue-lagoon.jpg" alt="Blue Lagoon between Dalmatian islands seen from gyrocopter sightseeing flight" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Three Islands: Bra&ccaron; &ndash; &Scaron;olta &ndash; Blue Lagoon</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sea45.desc">A spectacular panoramic flight above three islands offering views of turquoise lagoons, olive groves and hidden coves. After flying over the famous Zlatni Rat beach on Bra&ccaron;, the flight continues toward &Scaron;olta and the crystal-clear waters of the Blue Lagoon.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Bra&ccaron; (Zlatni Rat) &rarr; &Scaron;olta &rarr; Blue Lagoon &rarr; &Ccaron;iovo &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sea-45" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"The flight above three islands was pure poetry. The Blue Lagoon amazed me the most!" &mdash; <strong>Martina P.</strong>, tour guide</blockquote>
-            </div>
-          </div>
-
-          <!-- 60min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/hvar.jpg" alt="Aerial view of Hvar island Croatia from panoramic gyrocopter flight" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Golden Circle of Dalmatia</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sea60.desc">Horizon Airs' most popular coastal route, connecting all the most famous beauties of central Dalmatia. Fly above Bra&ccaron;, Hvar, the Pakleni Islands and &Scaron;olta with breathtaking views the entire way.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Bra&ccaron; (Zlatni Rat) &rarr; Hvar &rarr; Pakleni Islands &rarr; Blue Lagoon &rarr; &Scaron;olta &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sea-60" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"This is my Adriatic dream. Seeing Hvar, Bra&ccaron; and &Scaron;olta in one flight was something truly special." &mdash; <strong>David M.</strong>, Germany</blockquote>
-            </div>
-          </div>
-
-          <!-- 90min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/palmizana.jpg" alt="Pakleni Islands and Palmižana seen from aerial gyrocopter tour near Hvar" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Grand Dalmatian Symphony</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sea90.desc">A unique flight connecting Bra&ccaron;, Hvar, Vis and the Pakleni Islands in a perfect rhythm of sea and sky. During 90 minutes you'll witness the most beautiful panoramas of islands and bays that Dalmatia has to offer.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Bra&ccaron; &rarr; Hvar &rarr; Pakleni Islands &rarr; Vis &rarr; &Scaron;olta &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sea-90" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"The most romantic moment of my summer! Flying above Vis and Pakleni Islands while the sun sets..." &mdash; <strong>Ema J.</strong>, Split</blockquote>
-            </div>
-          </div>
-
-          <!-- 120min Stiniva -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/stiniva.jpg" alt="Stiniva Bay on Vis island Croatia from aerial gyrocopter sightseeing flight" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Royal Adriatic Flight</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sea120.desc">The longest and most luxurious coastal excursion. The route leads from Split toward Bra&ccaron;, Hvar, Vis and Bi&scaron;evo with a flyover above the famous Blue Cave. A true symphony of blue, light and silence.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Zlatni Rat &rarr; Hvar &rarr; Pakleni &rarr; Vis &rarr; Stiniva &rarr; Bi&scaron;evo &rarr; &Scaron;olta &rarr; Blue Lagoon &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sea-120" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"We flew above Bra&ccaron;, Hvar, Bi&scaron;evo and the Pakleni Islands &mdash; an incredible experience." &mdash; <strong>Jean-Paul L.</strong>, France</blockquote>
-            </div>
-          </div>
-
-          <!-- 120min Kornati -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition md:col-span-2" data-aos="fade-up">
-            <div class="md:flex">
-              <div class="relative md:w-1/2 h-48 md:h-auto">
-                <img src="images/tours/kornati.jpg" alt="Kornati National Park archipelago seen from exclusive gyrocopter flight from Split" class="w-full h-full object-cover" loading="lazy">
-                <span class="absolute top-3 right-3 bg-brand-navy text-white text-sm font-bold px-3 py-1 rounded-full">120 min &bull; NEW</span>
-                <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
-              </div>
-              <div class="p-6 md:w-1/2">
-                <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="tours.kornati.name">Exclusive Kornati Flight</h3>
-                <p class="text-gray-600 text-sm mb-3" data-i18n="tours.kornati.desc">Departing from Split, flying above Primo&scaron;ten, &Scaron;ibenik and NP Krka takes you to one of Croatia's most impressive national parks &mdash; Kornati. From the air, a magnificent mosaic of over 80 islands and reefs reveals itself.</p>
-                <p class="text-xs text-gray-400 mb-3">Split &rarr; Primo&scaron;ten &rarr; &Scaron;ibenik &rarr; NP Krka &rarr; Kornati &rarr; &Zcaron;irje &rarr; Zlarin &rarr; Trogir &rarr; Split</p>
-                <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                  <div id="map-sea-kornati" class="h-48 rounded-lg"></div>
-                </div>
-                <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"The Kornati flight was pure perfection! The view of hundreds of islands from the air is breathtaking." &mdash; <strong>Thomas B.</strong>, Germany</blockquote>
-              </div>
-            </div>
-          </div>
-
+    <section class="scene canyon" id="canyon" data-shots="kanjon:112:56" data-weights="1" data-still="0.333" aria-labelledby="canyon-h">
+      <div class="stage">
+        <div class="film"><picture class="poster"><source media="(max-width:820px)" srcset="/images/film/kanjon/s/019.webp"><img src="/images/film/kanjon/l/038.webp" width="1280" height="720" alt="Yellow gyrocopter banking between the rock walls of the Krka canyon" loading="lazy"></picture><canvas aria-hidden="true"></canvas></div>
+        <h2 id="canyon-h" data-i18n="can.h">Through<br>the canyon</h2>
+        <p class="place" data-i18n="can.place">Krka Canyon, Dalmatia</p>
+        <div class="caps">
+          <p class="is-on" data-i18n="can.1">Rock on both sides, the river below.</p>
+          <p data-i18n="can.2">Canyon routes follow the river bend by bend.</p>
+          <p><span data-i18n="can.3">Cetina Canyon, 35 minutes, 175 €.</span><a class="btn" href="#tours" data-goto="mount-35" data-i18n="can.cta">See this route</a></p>
         </div>
       </div>
+    </section>
 
-      <!-- MOUNTAIN TOURS -->
-      <div id="tab-planinski" class="tour-panel hidden">
-        <p class="text-center text-gray-500 mb-8" data-i18n="tours.mountdep">Departure: <strong>Split</strong> &mdash; Flights toward the Dalmatian hinterland</p>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- 35min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/kanjon-cetine.jpeg" alt="Cetina Canyon" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">35 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">175 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Cetina Canyon</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.mount35.desc">A flight above the emerald Cetina River reveals its magnificent canyon winding through rock and greenery. Perfect for nature lovers seeking peace and spectacular views.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Sinj &rarr; Cetina Canyon &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-mount-35" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Flying above the Cetina is something everyone must experience. The river looks like a snake made of glass." &mdash; <strong>Peter N.</strong>, Slovenia</blockquote>
-            </div>
+    <section class="tours" id="tours" aria-labelledby="tours-h">
+      <div class="chart" id="chart" aria-hidden="true">
+        <svg preserveAspectRatio="xMidYMid slice"></svg>
+        <div class="rose"><svg viewBox="0 0 120 120"><g fill="none" stroke="currentColor"><circle cx="60" cy="60" r="44"/><path d="M60 8v20M60 92v20M8 60h20M92 60h20" stroke-width="2"/><path d="M29 29l8 8M91 29l-8 8M29 91l8-8M91 91l-8-8"/></g><path d="M60 18l8 42H52z" fill="currentColor"/><text x="60" y="7" text-anchor="middle">N</text></svg></div>
+        <div class="scale"><i></i><span></span></div>
+        <p class="credit">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" tabindex="-1">OpenStreetMap</a></p>
+      </div>
+      <div class="picker">
+        <h2 id="tours-h" data-i18n="tours.h">Pick a route</h2>
+        <p class="lead" data-i18n="tours.sub">18 routes and the Blue Cave. Choose one to see it on the chart. The pilot may adjust it for the weather.</p>
+        <div class="tabs" role="tablist" aria-label="Routes">
+          <button type="button" role="tab" id="t-sea" aria-controls="p-sea" aria-selected="true" data-i18n="tours.tab.sea">Coast</button>
+          <button type="button" role="tab" id="t-mount" aria-controls="p-mount" aria-selected="false" tabindex="-1" data-i18n="tours.tab.mount">Mountains</button>
+          <button type="button" role="tab" id="t-sinj" aria-controls="p-sinj" aria-selected="false" tabindex="-1" data-i18n="tours.tab.sinj">From Sinj</button>
+        </div>
+      <div class="panel" role="tabpanel" id="p-sea" aria-labelledby="t-sea">
+        <p class="dep" data-i18n="tours.dep.sea">Departure: Split Harbour</p>
+        <ol class="routes">
+        <li class="route" data-route="sea-15">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sea-15"><span class="r-min">15<i>min</i></span><span class="r-name" data-i18n="r.sea-15.n">Split Skyline Flight</span><span class="r-price">75 €</span></button></h3>
+          <div class="r-more" id="r-sea-15" hidden>
+            <img src="/images/tours/split.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-15.s">Split <span>→</span> Marjan <span>→</span> Kaštela Bay <span>→</span> Split</p>
+            <p data-i18n="r.sea-15.d">A short flight that shows Split from the air. Once the gyrocopter lifts off above the ferry port you see the Riva, Diocletian's Palace and Marjan Hill at once.</p>
+            <button type="button" class="btn" data-book="sea-15" data-i18n="tours.book">Book this route</button>
           </div>
-
-          <!-- 45min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Mosor &amp; Omi&scaron; Gorge</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.mount45.desc">A panoramic flight connecting mountains and sea in one view. You'll see the magnificent cliffs of Mosor, the Omi&scaron; gorge and the mouth of the Cetina River meeting the sea.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Mosor &rarr; Omi&scaron; &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-mount-45" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Seeing Mosor and Omi&scaron; from the air was like viewing my hiking trails from another world." &mdash; <strong>Katarina M.</strong>, mountaineer</blockquote>
-            </div>
+        </li>
+        <li class="route" data-route="sea-30">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sea-30"><span class="r-min">30<i>min</i></span><span class="r-name" data-i18n="r.sea-30.n">Island &amp; City</span><span class="r-price">150 €</span></button></h3>
+          <div class="r-more" id="r-sea-30" hidden>
+            <img src="/images/split/marjan-kozjak.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-30.s">Split <span>→</span> Marjan <span>→</span> Čiovo <span>→</span> Trogir <span>→</span> Split</p>
+            <p data-i18n="r.sea-30.d">Split, the island of Čiovo and the stone streets of Trogir in half an hour.</p>
+            <button type="button" class="btn" data-book="sea-30" data-i18n="tours.book">Book this route</button>
           </div>
-
-          <!-- 60min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/izvor-cetine.jpg" alt="Source of the Cetina" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">From Sea to Source</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.mount60.desc">The flight begins above Split and ends above the source of the Cetina River, known as the "Eye of the Earth." This route symbolizes the journey of life &mdash; from sea to source, from blue to green.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Klis &rarr; Sinj &rarr; Cetina Source &rarr; Omi&scaron; &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-mount-60" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Phenomenal feeling! You start at the sea and end above the source of the Cetina." &mdash; <strong>Mate R.</strong>, Dugopolje</blockquote>
-            </div>
+        </li>
+        <li class="route" data-route="sea-45">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sea-45"><span class="r-min">45<i>min</i></span><span class="r-name" data-i18n="r.sea-45.n">Three Islands</span><span class="r-price">225 €</span></button></h3>
+          <div class="r-more" id="r-sea-45" hidden>
+            <img src="/images/tours/brac.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-45.s">Split <span>→</span> Brač (Zlatni Rat) <span>→</span> Šolta <span>→</span> Blue Lagoon <span>→</span> Čiovo <span>→</span> Split</p>
+            <p data-i18n="r.sea-45.d">Over the Zlatni Rat beach on Brač, then on to Šolta and the clear water of the Blue Lagoon.</p>
+            <button type="button" class="btn" data-book="sea-45" data-i18n="tours.book">Book this route</button>
           </div>
-
-          <!-- 90min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/dinara.jpeg" alt="Dinara mountain" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Green Heart of Dalmatia</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.mount90.desc">A flight above Sinj, Lake Peru&ccaron;a and the slopes of Dinara offers a view of the greenest part of Dalmatia. The perfect tour for those seeking tranquility and a deep connection with nature.</p>
-              <p class="text-xs text-gray-400 mb-3">Split &rarr; Sinj &rarr; Cetina Source &rarr; Dinara &rarr; Peru&ccaron;a &rarr; Split</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-mount-90" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"I've never seen so much green in Dalmatia! The flight above Sinj and Peru&ccaron;a is pure meditation." &mdash; <strong>Maria L.</strong>, Spain</blockquote>
-            </div>
+        </li>
+        <li class="route is-on" data-route="sea-60">
+          <h3><button type="button" aria-expanded="true" aria-controls="r-sea-60"><span class="r-min">60<i>min</i></span><span class="r-name" data-i18n="r.sea-60.n">Golden Circle of Dalmatia</span><span class="r-price">250 €</span></button></h3>
+          <div class="r-more" id="r-sea-60">
+            <img src="/images/tours/hvar.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-60.s">Split <span>→</span> Brač (Zlatni Rat) <span>→</span> Hvar <span>→</span> Pakleni Islands <span>→</span> Blue Lagoon <span>→</span> Šolta <span>→</span> Split</p>
+            <p data-i18n="r.sea-60.d">Our most popular coastal route. Brač, Hvar, the Pakleni Islands and Šolta in one hour.</p>
+            <button type="button" class="btn" data-book="sea-60" data-i18n="tours.book">Book this route</button>
           </div>
-
-          <!-- 120min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition md:col-span-2" data-aos="fade-up">
-            <div class="md:flex">
-              <div class="relative md:w-1/2 h-48 md:h-auto">
-                <img src="images/tours/knin.jpeg" alt="Knin Fortress" class="w-full h-full object-cover" loading="lazy">
-                <span class="absolute top-3 right-3 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
-                <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
-              </div>
-              <div class="p-6 md:w-1/2">
-                <h3 class="text-xl font-bold text-brand-navy mb-2">Dalmatian Eco Expedition</h3>
-                <p class="text-gray-600 text-sm mb-3" data-i18n="tours.mount120.desc">The longest and most diverse mountain tour takes you over Knin, Dinara, Kr&ccaron;i&cacute; Waterfall and Peru&ccaron;a. A flight that reveals the geological, historical and natural gems of Dalmatia.</p>
-                <p class="text-xs text-gray-400 mb-3">Split &rarr; Dinara &rarr; Knin &rarr; Kr&ccaron;i&cacute; Waterfall &rarr; Peru&ccaron;a &rarr; Omi&scaron; &rarr; Split</p>
-                <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                  <div id="map-mount-120" class="h-48 rounded-lg"></div>
-                </div>
-                <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"This flight is a true eco-gem. Dinara, Knin and Kr&ccaron;i&cacute; Waterfall &mdash; like a live documentary." &mdash; <strong>Ivan P.</strong>, biologist</blockquote>
-              </div>
-            </div>
+        </li>
+        <li class="route" data-route="sea-90">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sea-90"><span class="r-min">90<i>min</i></span><span class="r-name" data-i18n="r.sea-90.n">Grand Dalmatian Symphony</span><span class="r-price">375 €</span></button></h3>
+          <div class="r-more" id="r-sea-90" hidden>
+            <img src="/images/tours/palmizana.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-90.s">Split <span>→</span> Brač <span>→</span> Hvar <span>→</span> Pakleni Islands <span>→</span> Vis <span>→</span> Šolta <span>→</span> Split</p>
+            <p data-i18n="r.sea-90.d">Brač, Hvar, the Pakleni Islands and out to Vis. GoPro filming is free on this flight.</p>
+            <button type="button" class="btn" data-book="sea-90" data-i18n="tours.book">Book this route</button>
           </div>
+        </li>
+        <li class="route" data-route="sea-120">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sea-120"><span class="r-min">120<i>min</i></span><span class="r-name" data-i18n="r.sea-120.n">Royal Adriatic Flight</span><span class="r-price">470 €</span></button></h3>
+          <div class="r-more" id="r-sea-120" hidden>
+            <img src="/images/tours/stiniva.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-120.s">Split <span>→</span> Zlatni Rat <span>→</span> Hvar <span>→</span> Pakleni Islands <span>→</span> Vis <span>→</span> Stiniva <span>→</span> Biševo <span>→</span> Šolta <span>→</span> Blue Lagoon <span>→</span> Split</p>
+            <p data-i18n="r.sea-120.d">The longest coastal route: Brač, Hvar, Vis with Stiniva Bay, and Biševo above the Blue Cave.</p>
+            <button type="button" class="btn" data-book="sea-120" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="sea-kornati">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sea-kornati"><span class="r-min">120<i>min</i></span><span class="r-name" data-i18n="r.sea-kornati.n">Exclusive Kornati Flight</span><span class="r-price">470 €</span></button></h3>
+          <div class="r-more" id="r-sea-kornati" hidden>
+            <img src="/images/tours/kornati.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sea-kornati.s">Split <span>→</span> Primošten <span>→</span> Šibenik <span>→</span> Krka <span>→</span> Kornati <span>→</span> Žirje <span>→</span> Zlarin <span>→</span> Trogir <span>→</span> Split</p>
+            <p data-i18n="r.sea-kornati.d">Past Primošten, Šibenik and the Krka falls to Kornati National Park, more than 80 islands and reefs.</p>
+            <button type="button" class="btn" data-book="sea-kornati" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="blue-cave">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-blue-cave"><span class="r-min">60<i>min</i></span><span class="r-name" data-i18n="r.blue-cave.n">Blue Cave</span><span class="r-price">260 €</span></button></h3>
+          <div class="r-more" id="r-blue-cave" hidden>
+            <img src="/images/tours/vis.webp" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.blue-cave.s">Split <span>→</span> Hvar <span>→</span> Pakleni Islands <span>→</span> Vis <span>→</span> Biševo <span>→</span> Split</p>
+            <p data-i18n="r.blue-cave.d">Across the Brač Channel, Hvar, the Pakleni Islands and Vis to the Blue Cave on Biševo, in an amphibious gyrocopter. About 60 minutes including takeoff and return.</p>
+            <button type="button" class="btn" data-book="blue-cave" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        </ol>
+      </div>
+      <div class="panel" role="tabpanel" id="p-mount" aria-labelledby="t-mount" hidden>
+        <p class="dep" data-i18n="tours.dep.mount">Departure: Split</p>
+        <ol class="routes">
+        <li class="route" data-route="mount-35">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-mount-35"><span class="r-min">35<i>min</i></span><span class="r-name" data-i18n="r.mount-35.n">Cetina Canyon</span><span class="r-price">175 €</span></button></h3>
+          <div class="r-more" id="r-mount-35" hidden>
+            <img src="/images/tours/izvor-cetine.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.mount-35.s">Split <span>→</span> Sinj <span>→</span> Cetina Canyon <span>→</span> Split</p>
+            <p data-i18n="r.mount-35.d">Along the emerald Cetina as it winds through its canyon of rock and green.</p>
+            <button type="button" class="btn" data-book="mount-35" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="mount-45">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-mount-45"><span class="r-min">45<i>min</i></span><span class="r-name" data-i18n="r.mount-45.n">Mosor &amp; Omiš Gorge</span><span class="r-price">225 €</span></button></h3>
+          <div class="r-more" id="r-mount-45" hidden>
+            <img src="/images/split/kapetanija.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.mount-45.s">Split <span>→</span> Mosor <span>→</span> Omiš <span>→</span> Split</p>
+            <p data-i18n="r.mount-45.d">The cliffs of Mosor, the Omiš gorge and the mouth of the Cetina, where the river meets the sea.</p>
+            <button type="button" class="btn" data-book="mount-45" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="mount-60">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-mount-60"><span class="r-min">60<i>min</i></span><span class="r-name" data-i18n="r.mount-60.n">From Sea to Source</span><span class="r-price">250 €</span></button></h3>
+          <div class="r-more" id="r-mount-60" hidden>
+            <img src="/images/tours/izvor-cetine.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.mount-60.s">Split <span>→</span> Klis <span>→</span> Sinj <span>→</span> Cetina Source <span>→</span> Omiš <span>→</span> Split</p>
+            <p data-i18n="r.mount-60.d">From Split to the source of the Cetina, the deep blue spring called the Eye of the Earth.</p>
+            <button type="button" class="btn" data-book="mount-60" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="mount-90">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-mount-90"><span class="r-min">90<i>min</i></span><span class="r-name" data-i18n="r.mount-90.n">Green Heart of Dalmatia</span><span class="r-price">375 €</span></button></h3>
+          <div class="r-more" id="r-mount-90" hidden>
+            <img src="/images/tours/peruca.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.mount-90.s">Split <span>→</span> Sinj <span>→</span> Cetina Source <span>→</span> Dinara <span>→</span> Peruća <span>→</span> Split</p>
+            <p data-i18n="r.mount-90.d">Sinj, Lake Peruća and the slopes of Dinara, the greenest part of Dalmatia.</p>
+            <button type="button" class="btn" data-book="mount-90" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="mount-120">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-mount-120"><span class="r-min">120<i>min</i></span><span class="r-name" data-i18n="r.mount-120.n">Dalmatian Eco Expedition</span><span class="r-price">470 €</span></button></h3>
+          <div class="r-more" id="r-mount-120" hidden>
+            <img src="/images/tours/dinara.jpeg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.mount-120.s">Split <span>→</span> Dinara <span>→</span> Knin <span>→</span> Krčić Waterfall <span>→</span> Peruća <span>→</span> Omiš <span>→</span> Split</p>
+            <p data-i18n="r.mount-120.d">The longest mountain route: Knin fortress, Dinara, the Krčić waterfall and Peruća.</p>
+            <button type="button" class="btn" data-book="mount-120" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        </ol>
+      </div>
+      <div class="panel" role="tabpanel" id="p-sinj" aria-labelledby="t-sinj" hidden>
+        <p class="dep" data-i18n="tours.dep.sinj">Departure: Piket airfield, Sinj</p>
+        <ol class="routes">
+        <li class="route" data-route="sinj-15">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sinj-15"><span class="r-min">15<i>min</i></span><span class="r-name" data-i18n="r.sinj-15.n">Sinj Panorama</span><span class="r-price">75 €</span></button></h3>
+          <div class="r-more" id="r-sinj-15" hidden>
+            <img src="/images/tours/peruca.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sinj-15.s">Piket <span>→</span> Kamičak Fortress <span>→</span> Sinj Field <span>→</span> Piket</p>
+            <p data-i18n="r.sinj-15.d">Sinj Field and the Kamičak fortress above the town, with the Cetina valley around them.</p>
+            <button type="button" class="btn" data-book="sinj-15" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="sinj-30">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sinj-30"><span class="r-min">30<i>min</i></span><span class="r-name" data-i18n="r.sinj-30.n">Source of Life</span><span class="r-price">150 €</span></button></h3>
+          <div class="r-more" id="r-sinj-30" hidden>
+            <img src="/images/tours/izvor-cetine.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sinj-30.s">Piket <span>→</span> Cetina Source <span>→</span> Peruća <span>→</span> Piket</p>
+            <p data-i18n="r.sinj-30.d">From Sinj to the Eye of the Earth, the source of the Cetina, and back over Lake Peruća.</p>
+            <button type="button" class="btn" data-book="sinj-30" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="sinj-45">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sinj-45"><span class="r-min">45<i>min</i></span><span class="r-name" data-i18n="r.sinj-45.n">Mosor &amp; Cetina</span><span class="r-price">225 €</span></button></h3>
+          <div class="r-more" id="r-sinj-45" hidden>
+            <img src="/images/tours/krka.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sinj-45.s">Piket <span>→</span> Dugopolje <span>→</span> Mosor <span>→</span> Omiš <span>→</span> Trilj <span>→</span> Piket</p>
+            <p data-i18n="r.sinj-45.d">Through the valley and canyon of the Cetina to Omiš, mountains and sea in one flight.</p>
+            <button type="button" class="btn" data-book="sinj-45" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="sinj-60">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sinj-60"><span class="r-min">60<i>min</i></span><span class="r-name" data-i18n="r.sinj-60.n">Sea &amp; Mountains of Dalmatia</span><span class="r-price">250 €</span></button></h3>
+          <div class="r-more" id="r-sinj-60" hidden>
+            <img src="/images/tours/solta.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sinj-60.s">Piket <span>→</span> Mosor <span>→</span> Omiš <span>→</span> Brač <span>→</span> Šolta <span>→</span> Split <span>→</span> Piket</p>
+            <p data-i18n="r.sinj-60.d">Mosor, Omiš, Brač, Šolta and Split. Mountains, islands and the city in an hour.</p>
+            <button type="button" class="btn" data-book="sinj-60" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="sinj-90">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sinj-90"><span class="r-min">90<i>min</i></span><span class="r-name" data-i18n="r.sinj-90.n">Golden Circle of the Cetina</span><span class="r-price">375 €</span></button></h3>
+          <div class="r-more" id="r-sinj-90" hidden>
+            <img src="/images/tours/dinara.jpeg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sinj-90.s">Piket <span>→</span> Dinara <span>→</span> Knin <span>→</span> Krčić <span>→</span> Peruća <span>→</span> Klis <span>→</span> Split <span>→</span> Piket</p>
+            <p data-i18n="r.sinj-90.d">Dinara, Knin, the Krčić waterfall and Peruća, then down past Klis to Split.</p>
+            <button type="button" class="btn" data-book="sinj-90" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        <li class="route" data-route="sinj-120">
+          <h3><button type="button" aria-expanded="false" aria-controls="r-sinj-120"><span class="r-min">120<i>min</i></span><span class="r-name" data-i18n="r.sinj-120.n">Dalmatian Epic Flight</span><span class="r-price">470 €</span></button></h3>
+          <div class="r-more" id="r-sinj-120" hidden>
+            <img src="/images/tours/hvar.jpg" alt="" loading="lazy" width="400" height="240">
+            <p class="r-stops" data-i18n="r.sinj-120.s">Piket <span>→</span> Dinara <span>→</span> Knin <span>→</span> Krčić <span>→</span> Cetina Source <span>→</span> Peruća <span>→</span> Mosor <span>→</span> Omiš <span>→</span> Brač <span>→</span> Hvar <span>→</span> Split <span>→</span> Piket</p>
+            <p data-i18n="r.sinj-120.d">Mountains, rivers, coast and islands in one flight, from Dinara down to Hvar and back.</p>
+            <button type="button" class="btn" data-book="sinj-120" data-i18n="tours.book">Book this route</button>
+          </div>
+        </li>
+        </ol>
+      </div>
+      </div>
+    </section>
+
+    <section class="cave" id="blue-cave">
+      <img src="/images/tours/blue-cave-diving.webp" alt="Swimmers in the blue light of a sea cave" loading="lazy" width="1500" height="591">
+      <div class="cave-text">
+        <h2 data-i18n="cave.h">The Blue Cave, from the air</h2>
+        <p data-i18n="cave.d">From Split across the Brač Channel, Hvar, the Pakleni Islands and Vis to Biševo, where the cave glows blue. You fly an amphibious gyrocopter from Split Harbour.</p>
+        <p class="facts"><b>260 €</b> <span data-i18n="cave.pp">per person, about 60 minutes including takeoff and return</span></p>
+        <button type="button" class="btn" data-book="blue-cave" data-i18n="cave.c">Book the Blue Cave</button>
+      </div>
+    </section>
+
+    <section class="prices" id="pricing">
+      <div class="wrap">
+        <h2 data-i18n="price.h">Prices</h2>
+        <p class="lead" data-i18n="price.sub">Per person. Flight, equipment, helmet, headset and pilot briefing are included.</p>
+        <ol class="ruler">
+          <li style="--m:15"><span class="p-min">15<i>min</i></span><span class="p-bar"><b></b></span><span class="p-eur">75 €</span></li>
+          <li style="--m:30"><span class="p-min">30<i>min</i></span><span class="p-bar"><b></b></span><span class="p-eur">150 €</span></li>
+          <li style="--m:35"><span class="p-min">35<i>min</i></span><span class="p-bar"><b></b><em data-i18n="price.only">Cetina Canyon only</em></span><span class="p-eur">175 €</span></li>
+          <li style="--m:45"><span class="p-min">45<i>min</i></span><span class="p-bar"><b></b></span><span class="p-eur">225 €</span></li>
+          <li style="--m:60"><span class="p-min">60<i>min</i></span><span class="p-bar"><b></b><em data-i18n="price.pop">Most popular</em></span><span class="p-eur">250 €</span></li>
+          <li style="--m:90"><span class="p-min">90<i>min</i></span><span class="p-bar"><b></b></span><span class="p-eur">375 €</span></li>
+          <li style="--m:120"><span class="p-min">120<i>min</i></span><span class="p-bar"><b></b></span><span class="p-eur">470 €</span></li>
+        </ol>
+        <div class="extras">
+          <div><h3 data-i18n="gp.h">GoPro filming</h3><p class="big">20 €</p><p data-i18n="gp.d">GoPro Hero and GoPro 360 recording of your flight. Free on flights of 90 minutes or longer. Please keep your own phone away in flight.</p></div>
+          <div><h3 data-i18n="ch.h">Private charter</h3><p class="big" data-i18n="ch.p">On request</p><p data-i18n="ch.d">Your own route, proposals, formation flights for couples, photo and video production, business events.</p><button type="button" class="link" data-book="private-charter" data-i18n="ch.c">Ask for a price</button></div>
+          <div><h3 data-i18n="gv.h">Gift vouchers</h3><p class="big" data-i18n="gv.p">12 months</p><p data-i18n="gv.d">Personalised vouchers for birthdays, anniversaries or corporate gifts, valid for 12 months.</p></div>
         </div>
       </div>
+    </section>
 
-      <!-- SINJ TOURS -->
-      <div id="tab-sinj" class="tour-panel hidden">
-        <p class="text-center text-gray-500 mb-8" data-i18n="tours.sinjdep">Departure: <strong>Piket Airfield, Sinj</strong> &mdash; Flights from the heart of the Dalmatian hinterland</p>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- 15min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/sinj-cetina.jpeg" alt="Sinj panorama" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">15 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">75 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Sinj Panorama</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sinj15.desc">A flight above Sinj Field and Kami&ccaron;ak Fortress offers a unique view of this historic town and the Cetina valley. Perfect for a short but impressive aerial experience.</p>
-              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Kami&ccaron;ak Fortress &rarr; Sinj Field &rarr; Piket</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sinj-15" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"I finally saw Sinj from the air! The field, the fortress and the Cetina look magical." &mdash; <strong>Jelena V.</strong>, Sinj</blockquote>
-            </div>
-          </div>
-
-          <!-- 30min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/izvor-cetine.jpg" alt="Source of Cetina" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">30 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">150 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Source of Life</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sinj30.desc">A route from Sinj to the mythical source of the Cetina, the "Eye of the Earth." This tour symbolizes the bond between people and nature &mdash; quiet, emotional and unforgettable.</p>
-              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Cetina Source (Eye of the Earth) &rarr; Peru&ccaron;a &rarr; Piket</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sinj-30" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"The flight to the Eye of the Earth is something special. That turquoise color is surreal." &mdash; <strong>Tomislav P.</strong>, farmer</blockquote>
-            </div>
-          </div>
-
-          <!-- 45min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">45 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">225 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Mosor &amp; Cetina</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sinj45.desc">From Sinj toward Omi&scaron;, through the valley and canyon of the Cetina &mdash; a blend of mountains and sea in one flight. The ideal tour for those who want to see the heart of Dalmatia from above.</p>
-              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Dugopolje/Mosor &rarr; Omi&scaron; &rarr; Trilj &rarr; Piket</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sinj-45" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"Flying from Sinj to Omi&scaron; through the Cetina valley &mdash; absolutely magical!" &mdash; <strong>Francesca R.</strong>, Italy</blockquote>
-            </div>
-          </div>
-
-          <!-- 60min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/brac.jpg" alt="Bra&ccaron; island" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">60 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">250 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Sea &amp; Mountains of Dalmatia</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sinj60.desc">One of Horizon Airs' most beautiful routes &mdash; views of Dinara, Mosor, &Scaron;olta and Bra&ccaron;. A flight that shows you all of Dalmatia in one breathtaking hour.</p>
-              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Mosor &rarr; Omi&scaron; &rarr; Bra&ccaron; &rarr; &Scaron;olta &rarr; Split &rarr; Piket</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sinj-60" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"This flight connects everything I love &mdash; sea, islands and mountains." &mdash; <strong>Luka K.</strong>, professional skipper</blockquote>
-            </div>
-          </div>
-
-          <!-- 90min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up">
-            <div class="relative h-48">
-              <img src="images/tours/peruca.jpg" alt="Lake Peru&ccaron;a" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">90 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">375 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Golden Circle of the Cetina</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sinj90.desc">A flight that follows the Cetina River from its source to the sea. A symbolic, peaceful and spectacular circle that tells the story of the power and beauty of life in Dalmatia.</p>
-              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Dinara &rarr; Knin &rarr; Kr&ccaron;i&cacute; &rarr; Peru&ccaron;a &rarr; Klis &rarr; Split &rarr; Piket</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sinj-90" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"A flight connecting the source and mouth of the Cetina! Like a geography lesson, but alive and emotional." &mdash; <strong>Sandra D.</strong>, professor</blockquote>
-            </div>
-          </div>
-
-          <!-- 120min -->
-          <div class="tour-card bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
-            <div class="relative h-48">
-              <img src="images/tours/hvar.jpg" alt="Hvar island" class="w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-3 right-3 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full">120 min</span>
-              <span class="absolute bottom-3 right-3 bg-brand-accent text-white text-sm font-bold px-3 py-1 rounded-full">470 &euro;</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-brand-navy mb-2">Dalmatian Epic Flight</h3>
-              <p class="text-gray-600 text-sm mb-3" data-i18n="tours.sinj120.desc">The ultimate flight connecting mountains, islands, rivers and coastline in one epic experience. From Sinj to the sea and back &mdash; this isn't just a flight, it's the story of Dalmatia seen from the sky.</p>
-              <p class="text-xs text-gray-400 mb-3">Piket &rarr; Dinara &rarr; Knin &rarr; Kr&ccaron;i&cacute; &rarr; Cetina Source &rarr; Peru&ccaron;a &rarr; Mosor &rarr; Omi&scaron; &rarr; Bra&ccaron; &rarr; Hvar &rarr; Split &rarr; Piket</p>
-              <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                <div id="map-sinj-120" class="h-48 rounded-lg"></div>
-              </div>
-              <blockquote class="border-l-4 border-brand-accent pl-4 text-sm italic text-gray-500">"The flight of a lifetime. From Dinara to the sea, over the islands and back &mdash; pure poetry." &mdash; <strong>Mark J.</strong>, USA</blockquote>
-            </div>
-          </div>
-
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <h2 data-i18n="rev.h">What passengers say</h2>
+        <div class="quotes">
+        <figure><blockquote>I never thought Split could look so different from above! The Riva, Marjan and the whole city spread out before us.</blockquote><figcaption><b>Ana K.</b> Zagreb, 15 min flight</figcaption></figure>
+        <figure><blockquote>This is my Adriatic dream. Seeing Hvar, Brač and Šolta in one flight was something truly special. Perfectly timed!</blockquote><figcaption><b>David M.</b> Germany, 60 min flight</figcaption></figure>
+        <figure><blockquote>The most romantic moment of my summer! Flying above Vis and the Pakleni Islands while the sun sets... Colors, peace, and the feeling that time stands still.</blockquote><figcaption><b>Ema J.</b> Split, 90 min flight</figcaption></figure>
+        <figure><blockquote>We flew above Brač, Hvar, Biševo and the Pakleni Islands. As a former pilot, I can say the flight was flawlessly executed.</blockquote><figcaption><b>Jean-Paul L.</b> France, 120 min flight</figcaption></figure>
+        <figure><blockquote>Flying above the Cetina is something everyone must experience. The river looks like a snake made of glass.</blockquote><figcaption><b>Peter N.</b> Slovenia, 35 min flight</figcaption></figure>
+        <figure><blockquote>The flight of a lifetime. From Dinara to the sea, over the islands and back, pure poetry.</blockquote><figcaption><b>Mark J.</b> USA, 120 min from Sinj</figcaption></figure>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="gallery" id="gallery">
+      <h2 class="wrap" data-i18n="gal.h">What you fly over</h2>
+      <ul class="strip" tabindex="0" aria-label="Photos">
+        <li><button type="button"><img src="/images/tours/stiniva.jpg" alt="Stiniva, Vis" loading="lazy" width="640" height="440"><span>Stiniva, Vis</span></button></li>
+        <li><button type="button"><img src="/images/tours/brac.jpg" alt="Zlatni Rat, Brač" loading="lazy" width="640" height="440"><span>Zlatni Rat, Brač</span></button></li>
+        <li><button type="button"><img src="/images/tours/kornati.jpg" alt="Kornati" loading="lazy" width="640" height="440"><span>Kornati</span></button></li>
+        <li><button type="button"><img src="/images/split/marjan-kozjak.jpg" alt="Split" loading="lazy" width="640" height="440"><span>Split</span></button></li>
+        <li><button type="button"><img src="/images/tours/izvor-cetine.jpg" alt="Cetina Source" loading="lazy" width="640" height="440"><span>Cetina Source</span></button></li>
+        <li><button type="button"><img src="/images/tours/palmizana.jpg" alt="Palmižana, Pakleni Islands" loading="lazy" width="640" height="440"><span>Palmižana, Pakleni Islands</span></button></li>
+        <li><button type="button"><img src="/images/tours/hvar.jpg" alt="Hvar" loading="lazy" width="640" height="440"><span>Hvar</span></button></li>
+        <li><button type="button"><img src="/images/tours/vis.webp" alt="Vis" loading="lazy" width="640" height="440"><span>Vis</span></button></li>
+        <li><button type="button"><img src="/images/split/kapetanija.jpg" alt="Split Riva" loading="lazy" width="640" height="440"><span>Split Riva</span></button></li>
+        <li><button type="button"><img src="/images/tours/krka.jpg" alt="Krka" loading="lazy" width="640" height="440"><span>Krka</span></button></li>
+        <li><button type="button"><img src="/images/tours/zlarin.jpg" alt="Zlarin" loading="lazy" width="640" height="440"><span>Zlarin</span></button></li>
+        <li><button type="button"><img src="/images/tours/peruca.jpg" alt="Peruća" loading="lazy" width="640" height="440"><span>Peruća</span></button></li>
+        <li><button type="button"><img src="/images/split/marjan-aerial.jpg" alt="Split waterfront" loading="lazy" width="640" height="440"><span>Split waterfront</span></button></li>
+      </ul>
+    </section>
 
-  <!-- ========== BLUE CAVE EXCLUSIVE ========== -->
-  <section id="blue-cave" class="py-20 lg:py-28 bg-gradient-to-br from-brand-navy via-blue-900 to-brand-navy text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20">
-      <img src="images/tours/modra-spilja.jpeg" alt="" class="w-full h-full object-cover" loading="lazy">
-    </div>
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <span class="inline-block bg-brand-accent text-white text-sm font-bold px-4 py-2 rounded-full mb-6" data-i18n="cave.badge">EXCLUSIVE TOUR</span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" data-i18n="cave.title">Blue Cave from the Air</h2>
-        <p class="text-xl text-white/80 max-w-3xl mx-auto" data-i18n="cave.sub">Experience one of the most beautiful wonders of the Adriatic from a completely new perspective &mdash; from the sky!</p>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div data-aos="fade-right">
-          <p class="text-lg text-white/90 mb-6" data-i18n="cave.desc">Departing from Split, with a spectacular flight above the Bra&ccaron; Channel, the islands of Hvar, the Pakleni archipelago, Vis and Bi&scaron;evo, ending with an unforgettable sight of the Blue Cave, world-famous for its magical blue light.</p>
-          <div class="space-y-4 mb-8">
-            <div class="flex items-center gap-3">
-              <span class="bg-brand-accent rounded-full w-10 h-10 flex items-center justify-center text-lg shrink-0">&#128176;</span>
-              <span class="text-lg"><strong>260 &euro;</strong> <span data-i18n="cave.pp">per person</span></span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="bg-brand-accent rounded-full w-10 h-10 flex items-center justify-center text-lg shrink-0">&#9202;</span>
-              <span class="text-lg" data-i18n="cave.duration">Approx. <strong>60 minutes</strong> (including takeoff and return)</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="bg-brand-accent rounded-full w-10 h-10 flex items-center justify-center text-lg shrink-0">&#128205;</span>
-              <span class="text-lg" data-i18n="cave.departure">Departure: <strong>Split Harbor</strong> (amphibious gyrocopter)</span>
-            </div>
-          </div>
-          <div class="bg-gray-50 rounded-xl p-3 mb-6">
-            <div id="map-modra-spilja" class="h-56 rounded-lg"></div>
-          </div>
+    <section class="faq" id="faq">
+      <div class="wrap faq-grid">
+        <div class="faq-side">
+          <h2 data-i18n="faq.h">Questions before you fly</h2>
+          <dl class="glance">
+          <div><dt data-i18n="gl.0">Departure</dt><dd data-i18n="gl.v0">Split Harbour, Piket airfield near Sinj</dd></div>
+          <div><dt data-i18n="gl.1">Routes</dt><dd data-i18n="gl.v1">18 and the Blue Cave, 15 to 120 minutes</dd></div>
+          <div><dt data-i18n="gl.2">Price</dt><dd data-i18n="gl.v2">75 to 470 € per person</dd></div>
+          <div><dt data-i18n="gl.3">Altitude</dt><dd data-i18n="gl.v3">300 to 600 m</dd></div>
+          <div><dt data-i18n="gl.4">Seats</dt><dd data-i18n="gl.v4">One passenger and one pilot</dd></div>
+          <div><dt data-i18n="gl.5">Weight limit</dt><dd data-i18n="gl.v5">115 kg (253 lbs)</dd></div>
+          <div><dt data-i18n="gl.6">Hours</dt><dd data-i18n="gl.v6">Daily 8:00 to 20:00, weather permitting</dd></div>
+          <div><dt data-i18n="gl.7">Free changes</dt><dd data-i18n="gl.v7">Up to 72 hours before the flight</dd></div>
+          </dl>
         </div>
-        <div data-aos="fade-left">
-          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-            <div class="text-5xl mb-4">&#11088;</div>
-            <h3 class="text-xl font-bold mb-4">"Best way to see the Blue Cave &mdash; no crowds, pure freedom!"</h3>
-            <p class="text-white/80 leading-relaxed mb-6">I'm from Colorado and thought I'd seen it all &mdash; but this gyrocopter flight from Split with Horizon Airs was on another level. We flew over the islands and passed hundreds of boats slowly heading toward the Blue Cave, while we just glided above them and got there first &mdash; no crowds, just stunning views.</p>
-            <p class="text-white/80 leading-relaxed mb-6">The pilot was professional and made me feel completely safe the whole time. Honestly, it's the most unforgettable thing I've done in Croatia!</p>
-            <p class="font-semibold text-brand-accent">&mdash; Emily R., Colorado, USA</p>
-          </div>
-          <a href="#booking" class="mt-6 inline-block w-full text-center bg-brand-accent hover:bg-orange-500 text-white font-bold text-lg px-8 py-4 rounded-full transition transform hover:scale-105" data-i18n="cave.cta">Book the Blue Cave Flight</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== REVIEWS ========== -->
-  <section id="reviews" class="py-20 lg:py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4" data-i18n="reviews.title">What Our Passengers Say</h2>
-        <p class="text-lg text-gray-500" data-i18n="reviews.sub">Authentic reviews from real guests</p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up">
-          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="text-gray-600 italic mb-4">"I never thought Split could look so different from above! The Riva, Marjan and the whole city spread out before us."</p>
-          <p class="font-semibold text-brand-navy">Ana K.</p>
-          <p class="text-sm text-gray-400">28, architect from Zagreb &bull; 15 min flight</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="text-gray-600 italic mb-4">"This is my Adriatic dream. Seeing Hvar, Bra&ccaron; and &Scaron;olta in one flight was something truly special. Perfectly timed!"</p>
-          <p class="font-semibold text-brand-navy">David M.</p>
-          <p class="text-sm text-gray-400">42, engineer from Germany &bull; 60 min flight</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="text-gray-600 italic mb-4">"The most romantic moment of my summer! Flying above Vis and the Pakleni Islands while the sun sets... Colors, peace, and the feeling that time stands still."</p>
-          <p class="font-semibold text-brand-navy">Ema J.</p>
-          <p class="text-sm text-gray-400">26, influencer from Split &bull; 90 min flight</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up">
-          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="text-gray-600 italic mb-4">"We flew above Bra&ccaron;, Hvar, Bi&scaron;evo and the Pakleni Islands &mdash; an incredible experience. As a former pilot, I can say the flight was flawlessly executed."</p>
-          <p class="font-semibold text-brand-navy">Jean-Paul L.</p>
-          <p class="text-sm text-gray-400">54, retired pilot from France &bull; 120 min flight</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="text-gray-600 italic mb-4">"Flying above the Cetina is something everyone must experience. The river looks like a snake made of glass. The pilot even showed me where the Sinjska Alka tournament is held!"</p>
-          <p class="font-semibold text-brand-navy">Peter N.</p>
-          <p class="text-sm text-gray-400">39, Slovenian &bull; 35 min mountain flight</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-brand-accent text-3xl mb-3">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="text-gray-600 italic mb-4">"The flight of a lifetime. From Dinara to the sea, over the islands and back &mdash; pure poetry. The pilot and crew are true ambassadors of Dalmatia. 10/10!"</p>
-          <p class="font-semibold text-brand-navy">Mark J.</p>
-          <p class="text-sm text-gray-400">44, amateur pilot from the USA &bull; 120 min from Sinj</p>
+        <div class="faq-list">
+        <h3 data-i18n="faq.cat1">General Questions</h3>
+        <details><summary data-i18n="faq.q1">What is a gyrocopter?</summary><p data-i18n="faq.a1">A gyrocopter (autogyro) is an aircraft that combines the best characteristics of a helicopter and an airplane. The rotor is not powered by the engine but spins freely in the air, enabling an extremely stable and safe flight. Thanks to the principle of autorotation, a gyrocopter cannot "fall" even in the event of engine failure &mdash; making it one of the safest aircraft in the world.</p></details>
+        <details><summary data-i18n="faq.q2">How safe is a gyrocopter?</summary><p data-i18n="faq.a2">Very safe. A gyrocopter flies stably, smoothly and in a controlled manner. In the event of engine failure, the rotor continues to spin freely, enabling a safe and soft landing. This is why gyrocopters are used in flight schools and aerial patrols around the world.</p></details>
+        <details><summary data-i18n="faq.q3">How many people can fly in one gyrocopter?</summary><p data-i18n="faq.a3">A gyrocopter has two seats &mdash; one for the pilot and one for the passenger. For couples or groups, Horizon Airs Split offers synchronized fleet flights so you can fly side by side and share the aerial experience together.</p></details>
+        <details><summary data-i18n="faq.q4">How high does the gyrocopter fly?</summary><p data-i18n="faq.a4">We typically fly between 300 and 600 meters altitude, depending on the route and conditions, providing the perfect view of Dalmatia and its islands.</p></details>
+        <details><summary data-i18n="faq.q5">Who operates the aircraft?</summary><p data-i18n="faq.a5">All flights are conducted by certified professional pilots with strict adherence to all safety standards of the Croatian Civil Aviation Agency (CCAA) and the European Union Aviation Safety Agency (EASA).</p></details>
+        <h3 data-i18n="faq.cat2">Booking &amp; Payment</h3>
+        <details><summary data-i18n="faq.q6">How can I book a flight?</summary><p data-i18n="faq.a6">You can book a flight directly through our website. After selecting your preferred date and route, you'll receive a confirmation and payment instructions for the deposit.</p></details>
+        <details><summary data-i18n="faq.q7">What payment methods do you accept?</summary><p data-i18n="faq.a7">We accept all payment methods &mdash; cash, Mastercard, Visa, Revolut, Aircash, Bitcoin and other popular forms of digital payment.</p></details>
+        <details><summary data-i18n="faq.q8">Can I cancel or change my reservation?</summary><p data-i18n="faq.a8">Yes. You can cancel or change your reservation up to 72 hours before the scheduled time, free of charge. In that case, the deposit is fully refunded. For cancellations within 72 hours, the deposit is retained to cover preparation costs.</p></details>
+        <details><summary data-i18n="faq.q9">What if the flight is cancelled due to weather?</summary><p data-i18n="faq.a9">If weather conditions are not suitable, the flight is postponed to the first available time that works for you. If you cannot accept the new date, the deposit is fully refunded.</p></details>
+        <h3 data-i18n="faq.cat3">The Flight Experience</h3>
+        <details><summary data-i18n="faq.q10">Do I need previous flying experience?</summary><p data-i18n="faq.a10">No, no experience is needed whatsoever. The pilot handles the entire flight and will explain everything before takeoff. Your only job is &mdash; to enjoy the view!</p></details>
+        <details><summary data-i18n="faq.q11">Can I record the flight?</summary><p data-i18n="faq.a11">Passengers can film during the flight, but we don't recommend it due to the risk of losing phones or equipment. That's why Horizon Airs Split offers professional recording with GoPro Hero and GoPro 360 cameras for 20&euro; per recording, and it's free for all flights 90 minutes or longer.</p></details>
+        <details><summary data-i18n="faq.q12">Is there a weight limit?</summary><p data-i18n="faq.a12">Yes, for safety reasons the maximum passenger weight is 115 kg (253 lbs).</p></details>
+        <details><summary data-i18n="faq.q13">What should I bring?</summary><p data-i18n="faq.a13">Bring sunglasses and a light jacket &mdash; helmet, communication system and safety equipment are provided on site.</p></details>
+        <h3 data-i18n="faq.cat4">Special Services</h3>
+        <details><summary data-i18n="faq.q14">Do you offer gift vouchers?</summary><p data-i18n="faq.a14">Yes, we offer personalized gift vouchers valid for 12 months &mdash; ideal for birthdays, anniversaries or corporate gifts.</p></details>
+        <details><summary data-i18n="faq.q15">Do you organize special flights for couples and filming?</summary><p data-i18n="faq.a15">Yes, in addition to standard panoramic routes we offer romantic couple flights, photo and video flights, and business promo flights for marketing shoots and events. For couples, we organize synchronized fleet flights so you can enjoy the sky together.</p></details>
+        <h3 data-i18n="faq.cat5">Safety &amp; Compliance</h3>
+        <details><summary data-i18n="faq.q16">Who oversees your flights?</summary><p data-i18n="faq.a16">All flights are conducted in accordance with the regulations of the Croatian Civil Aviation Agency (CCAA) and the European Union Aviation Safety Agency (EASA).</p></details>
+        <details><summary data-i18n="faq.q17">How are the aircraft maintained?</summary><p data-i18n="faq.a17">Our gyrocopters are regularly serviced according to manufacturer instructions (AutoGyro MTO 914, Rotax 914 engine), with regular 25, 100, 200 and 500-hour inspections. All parts, oils and components are original and replaced exclusively according to certified standards.</p></details>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== GALLERY ========== -->
-  <section id="gallery" class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4" data-i18n="gallery.title">Gallery</h2>
-        <p class="text-lg text-gray-500" data-i18n="gallery.sub">Dalmatia from a bird's eye view</p>
+    <section class="book" id="booking" data-shots="end:18:9" data-weights="1" data-mode="pass">
+      <div class="film"><picture class="poster"><source media="(max-width:820px)" srcset="/images/film/end/s/001.webp"><img src="/images/film/end/l/001.webp" width="1280" height="720" alt="Pilot tipping the helmet at sunset" loading="lazy"></picture><canvas aria-hidden="true"></canvas></div>
+      <div class="book-form">
+        <h2 data-i18n="book.h">Book your flight</h2>
+        <p class="lead" data-i18n="book.sub">Send the form and we will get back to you with a confirmation and the deposit details.</p>
+        <form action="https://formsubmit.co/tutafranko@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Booking - Horizon Airs Split">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://flyabovesplit.com/#booking">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="wide"><span data-i18n="book.tour">Route</span><select name="tour" required><option value="" data-i18n="o.none">Select a route</option><optgroup label="Coast (Split Harbour)" data-i18n-label="g.sea"><option value="sea-15" data-i18n="o.sea-15">15 min, Split Skyline Flight (75 €)</option><option value="sea-30" data-i18n="o.sea-30">30 min, Island &amp; City (150 €)</option><option value="sea-45" data-i18n="o.sea-45">45 min, Three Islands (225 €)</option><option value="sea-60" data-i18n="o.sea-60">60 min, Golden Circle of Dalmatia (250 €)</option><option value="sea-90" data-i18n="o.sea-90">90 min, Grand Dalmatian Symphony (375 €)</option><option value="sea-120" data-i18n="o.sea-120">120 min, Royal Adriatic Flight (470 €)</option><option value="sea-kornati" data-i18n="o.sea-kornati">120 min, Exclusive Kornati Flight (470 €)</option></optgroup><optgroup label="Mountains (Split)" data-i18n-label="g.mount"><option value="mount-35" data-i18n="o.mount-35">35 min, Cetina Canyon (175 €)</option><option value="mount-45" data-i18n="o.mount-45">45 min, Mosor &amp; Omiš Gorge (225 €)</option><option value="mount-60" data-i18n="o.mount-60">60 min, From Sea to Source (250 €)</option><option value="mount-90" data-i18n="o.mount-90">90 min, Green Heart of Dalmatia (375 €)</option><option value="mount-120" data-i18n="o.mount-120">120 min, Dalmatian Eco Expedition (470 €)</option></optgroup><optgroup label="From Sinj (Piket airfield)" data-i18n-label="g.sinj"><option value="sinj-15" data-i18n="o.sinj-15">15 min, Sinj Panorama (75 €)</option><option value="sinj-30" data-i18n="o.sinj-30">30 min, Source of Life (150 €)</option><option value="sinj-45" data-i18n="o.sinj-45">45 min, Mosor &amp; Cetina (225 €)</option><option value="sinj-60" data-i18n="o.sinj-60">60 min, Sea &amp; Mountains of Dalmatia (250 €)</option><option value="sinj-90" data-i18n="o.sinj-90">90 min, Golden Circle of the Cetina (375 €)</option><option value="sinj-120" data-i18n="o.sinj-120">120 min, Dalmatian Epic Flight (470 €)</option></optgroup><optgroup label="Exclusive" data-i18n-label="g.ex"><option value="blue-cave" data-i18n="o.blue-cave">Blue Cave (260 €)</option></optgroup><optgroup label="Private charter" data-i18n-label="g.ch"><option value="private-charter" data-i18n="o.private-charter">Private charter, custom route (on request)</option><option value="couples-flight" data-i18n="o.couples-flight">Couples formation flight (on request)</option><option value="photo-video" data-i18n="o.photo-video">Photo and video flight (on request)</option></optgroup></select></label>
+          <label><span data-i18n="book.name">Full name</span><input type="text" name="name" required autocomplete="name"></label>
+          <label><span>Email</span><input type="email" name="email" required autocomplete="email" placeholder="you@email.com"></label>
+          <label><span data-i18n="book.phone">Phone (optional)</span><input type="tel" name="phone" autocomplete="tel"></label>
+          <label><span data-i18n="book.date">Preferred date (optional)</span><input type="date" name="date"></label>
+          <label class="wide"><span data-i18n="book.msg">Message (optional)</span><textarea name="message" rows="3" data-i18n-ph="book.ph" placeholder="Number of passengers, special requests, questions"></textarea></label>
+          <button type="submit" class="btn wide" data-i18n="book.send">Send inquiry</button>
+        </form>
       </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        <div class="gallery-item col-span-2 row-span-2" data-aos="zoom-in">
-          <img src="images/hero-fleet.png" alt="Gyrocopter fleet" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/hvar.jpg" alt="Hvar" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/stiniva.jpg" alt="Stiniva Bay" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/kornati.jpg" alt="Kornati" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/palmizana.jpg" alt="Palmizana" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/brac.jpg" alt="Bra&ccaron; island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/izvor-cetine.jpg" alt="Cetina Source" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/split/kapetanija.jpg" alt="Split aerial" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/krka.jpg" alt="Krka National Park" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/split/marjan-aerial.jpg" alt="Marjan Hill" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/dinara.jpeg" alt="Dinara mountain" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/amphibious.jpg" alt="Amphibious gyrocopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <!-- Additional images -->
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/solta.jpg" alt="&Scaron;olta island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/trogir.jpeg" alt="Trogir" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/people/cool-grandpa.jpg" alt="Happy passenger" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/sibenik.jpg" alt="&Scaron;ibenik" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/splitska-vrata.jpg" alt="Split Gate" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/people/man-passenger.jpg" alt="Passenger enjoying flight" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/peruca.jpg" alt="Lake Peru&ccaron;a" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/split/marjan-kozjak.jpg" alt="Marjan and Kozjak" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/modra-spilja.jpeg" alt="Blue Cave" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/people/father-daughter.jpg" alt="Father and daughter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/zlarin.jpg" alt="Zlarin" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/pilot-selfie.jpg" alt="Gyrocopter selfie" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/omis.jpeg" alt="Omi&scaron;" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/people/woman-passenger.jpg" alt="Woman in gyrocopter" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/split/hotel-marjan.jpg" alt="Split Hotel Marjan view" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/gallery/takeoff.png" alt="Takeoff" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/sinj-cetina.jpeg" alt="Sinj and Cetina" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/people/woman-before-flight.jpg" alt="Before the flight" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/blue-cave-diving.webp" alt="Blue Cave diving" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/gallery/fleet-farmland.jpg" alt="Fleet over farmland" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/pilot-caricature.png" alt="Pilot above Split" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="50">
-          <img src="images/tours/kanjon-cetine.jpeg" alt="Cetina Canyon" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-          <img src="images/tours/knin.jpeg" alt="Knin fortress" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-        <div class="gallery-item" data-aos="zoom-in">
-          <img src="images/tours/bisevo.jpeg" alt="Bi&scaron;evo island" class="w-full h-48 object-cover rounded-xl cursor-pointer hover:opacity-90 transition" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-accent transition z-10 bg-black/30 rounded-full w-14 h-14 flex items-center justify-center" aria-label="Previous image">&#8249;</button>
-      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[90vh] object-contain rounded-lg cursor-default">
-      <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-accent transition z-10 bg-black/30 rounded-full w-14 h-14 flex items-center justify-center" aria-label="Next image">&#8250;</button>
-      <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-brand-accent transition" aria-label="Close">&times;</button>
-    </div>
-  </section>
-
-  <!-- ========== FAQ ========== -->
-  <section id="faq" class="py-20 lg:py-28 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-navy mb-4" data-i18n="faq.title">Frequently Asked Questions</h2>
-        <p class="text-lg text-gray-500" data-i18n="faq.sub">Everything you need to know before your flight</p>
-      </div>
-
-      <div class="space-y-4">
-        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up" data-i18n="faq.cat1">General Questions</h3>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q1">What is a gyrocopter?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a1">A gyrocopter (autogyro) is an aircraft that combines the best characteristics of a helicopter and an airplane. The rotor is not powered by the engine but spins freely in the air, enabling an extremely stable and safe flight. Thanks to the principle of autorotation, a gyrocopter cannot "fall" even in the event of engine failure &mdash; making it one of the safest aircraft in the world.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q2">How safe is a gyrocopter?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a2">Very safe. A gyrocopter flies stably, smoothly and in a controlled manner. In the event of engine failure, the rotor continues to spin freely, enabling a safe and soft landing. This is why gyrocopters are used in flight schools and aerial patrols around the world.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q3">How many people can fly in one gyrocopter?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a3">A gyrocopter has two seats &mdash; one for the pilot and one for the passenger. For couples or groups, Horizon Airs Split offers synchronized fleet flights so you can fly side by side and share the aerial experience together.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q4">How high does the gyrocopter fly?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a4">We typically fly between 300 and 600 meters altitude, depending on the route and conditions, providing the perfect view of Dalmatia and its islands.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q5">Who operates the aircraft?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a5">All flights are conducted by certified professional pilots with strict adherence to all safety standards of the Croatian Civil Aviation Agency (CCAA) and the European Union Aviation Safety Agency (EASA).</div>
-        </div>
-
-        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up" data-i18n="faq.cat2">Booking &amp; Payment</h3>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q6">How can I book a flight?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a6">You can book a flight directly through our website. After selecting your preferred date and route, you'll receive a confirmation and payment instructions for the deposit.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q7">What payment methods do you accept?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a7">We accept all payment methods &mdash; cash, Mastercard, Visa, Revolut, Aircash, Bitcoin and other popular forms of digital payment.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q8">Can I cancel or change my reservation?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a8">Yes. You can cancel or change your reservation up to 72 hours before the scheduled time, free of charge. In that case, the deposit is fully refunded. For cancellations within 72 hours, the deposit is retained to cover preparation costs.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q9">What if the flight is cancelled due to weather?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a9">If weather conditions are not suitable, the flight is postponed to the first available time that works for you. If you cannot accept the new date, the deposit is fully refunded.</div>
-        </div>
-
-        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up" data-i18n="faq.cat3">The Flight Experience</h3>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q10">Do I need previous flying experience?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a10">No, no experience is needed whatsoever. The pilot handles the entire flight and will explain everything before takeoff. Your only job is &mdash; to enjoy the view!</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q11">Can I record the flight?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a11">Passengers can film during the flight, but we don't recommend it due to the risk of losing phones or equipment. That's why Horizon Airs Split offers professional recording with GoPro Hero and GoPro 360 cameras for 20&euro; per recording, and it's free for all flights 90 minutes or longer.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q12">Is there a weight limit?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a12">Yes, for safety reasons the maximum passenger weight is 115 kg (253 lbs).</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q13">What should I bring?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a13">Bring sunglasses and a light jacket &mdash; helmet, communication system and safety equipment are provided on site.</div>
-        </div>
-
-        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up" data-i18n="faq.cat4">Special Services</h3>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q14">Do you offer gift vouchers?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a14">Yes, we offer personalized gift vouchers valid for 12 months &mdash; ideal for birthdays, anniversaries or corporate gifts.</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q15">Do you organize special flights for couples and filming?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a15">Yes, in addition to standard panoramic routes we offer romantic couple flights, photo and video flights, and business promo flights for marketing shoots and events. For couples, we organize synchronized fleet flights so you can enjoy the sky together.</div>
-        </div>
-
-        <h3 class="text-xl font-bold text-brand-navy mt-8 mb-4" data-aos="fade-up" data-i18n="faq.cat5">Safety &amp; Compliance</h3>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q16">Who oversees your flights?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a16">All flights are conducted in accordance with the regulations of the Croatian Civil Aviation Agency (CCAA) and the European Union Aviation Safety Agency (EASA).</div>
-        </div>
-
-        <div class="faq-item bg-white rounded-xl shadow-sm border border-gray-100" data-aos="fade-up">
-          <button class="faq-btn w-full text-left px-6 py-4 flex items-center justify-between font-semibold text-brand-dark">
-            <span data-i18n="faq.q17">How are the aircraft maintained?</span>
-            <svg class="faq-icon w-5 h-5 text-brand-sky transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-answer hidden px-6 pb-4 text-gray-600" data-i18n="faq.a17">Our gyrocopters are regularly serviced according to manufacturer instructions (AutoGyro MTO 914, Rotax 914 engine), with regular 25, 100, 200 and 500-hour inspections. All parts, oils and components are original and replaced exclusively according to certified standards.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== BOOKING FORM ========== -->
-  <section id="booking" class="py-20 lg:py-28 bg-gradient-to-br from-brand-navy to-blue-900 text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4" data-i18n="book.title">Book Your Flight</h2>
-        <p class="text-lg text-white/80" data-i18n="book.sub">Fill in the form and we'll get back to you as soon as possible</p>
-      </div>
-
-      <form action="https://formsubmit.co/tutafranko@gmail.com" method="POST" class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 space-y-6" data-aos="fade-up" data-aos-delay="200">
-        <input type="hidden" name="_subject" value="New Booking - Horizon Airs Split">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://flyabovesplit.com/#booking">
-        <input type="text" name="_honey" style="display:none">
-
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-sm font-medium text-white/80 mb-2" data-i18n="book.name">Full Name *</label>
-            <input type="text" name="name" required class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent" placeholder="Your name" data-i18n-placeholder="book.nameph">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-white/80 mb-2">Email *</label>
-            <input type="email" name="email" required class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent" placeholder="you@email.com">
-          </div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-sm font-medium text-white/80 mb-2" data-i18n="book.phone">Phone</label>
-            <input type="tel" name="phone" class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent" placeholder="+385 ...">
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-white/80 mb-2" data-i18n="book.date">Preferred Date</label>
-            <input type="date" name="date" class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-white/80 mb-2" data-i18n="book.tour">Select Tour *</label>
-          <select name="tour" required class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-accent">
-            <option value="" class="text-gray-800">-- Select a tour --</option>
-            <optgroup label="Coastal Routes (Split Harbor)" class="text-gray-800">
-              <option value="sea-15" class="text-gray-800">15 min — Split Skyline Flight (75 €)</option>
-              <option value="sea-30" class="text-gray-800">30 min — Island & City (150 €)</option>
-              <option value="sea-45" class="text-gray-800">45 min — Three Islands (225 €)</option>
-              <option value="sea-60" class="text-gray-800">60 min — Golden Circle of Dalmatia (250 €)</option>
-              <option value="sea-90" class="text-gray-800">90 min — Grand Dalmatian Symphony (375 €)</option>
-              <option value="sea-120" class="text-gray-800">120 min — Royal Adriatic Flight (470 €)</option>
-              <option value="sea-kornati" class="text-gray-800">120 min — Exclusive Kornati Flight (470 €)</option>
-            </optgroup>
-            <optgroup label="Mountain Routes (Split)" class="text-gray-800">
-              <option value="mount-35" class="text-gray-800">35 min — Cetina Canyon (175 €)</option>
-              <option value="mount-45" class="text-gray-800">45 min — Mosor & Omiš Gorge (225 €)</option>
-              <option value="mount-60" class="text-gray-800">60 min — From Sea to Source (250 €)</option>
-              <option value="mount-90" class="text-gray-800">90 min — Green Heart of Dalmatia (375 €)</option>
-              <option value="mount-120" class="text-gray-800">120 min — Dalmatian Eco Expedition (470 €)</option>
-            </optgroup>
-            <optgroup label="Sinj Routes (Piket Airfield)" class="text-gray-800">
-              <option value="sinj-15" class="text-gray-800">15 min — Sinj Panorama (75 €)</option>
-              <option value="sinj-30" class="text-gray-800">30 min — Source of Life (150 €)</option>
-              <option value="sinj-45" class="text-gray-800">45 min — Mosor & Cetina (225 €)</option>
-              <option value="sinj-60" class="text-gray-800">60 min — Sea & Mountains of Dalmatia (250 €)</option>
-              <option value="sinj-90" class="text-gray-800">90 min — Golden Circle of the Cetina (375 €)</option>
-              <option value="sinj-120" class="text-gray-800">120 min — Dalmatian Epic Flight (470 €)</option>
-            </optgroup>
-            <optgroup label="Exclusive" class="text-gray-800">
-              <option value="blue-cave" class="text-gray-800">Blue Cave — exclusive flight (260 €)</option>
-            </optgroup>
-            <optgroup label="Private Charter" class="text-gray-800">
-              <option value="private-charter" class="text-gray-800">Private Charter — custom route (contact us)</option>
-              <option value="couples-flight" class="text-gray-800">Couples Formation Flight (contact us)</option>
-              <option value="photo-video" class="text-gray-800">Photo & Video Production Flight (contact us)</option>
-            </optgroup>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-white/80 mb-2" data-i18n="book.msg">Message</label>
-          <textarea name="message" rows="3" class="w-full bg-white/10 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-accent resize-none" placeholder="Special requests, number of passengers, questions..." data-i18n-placeholder="book.msgph"></textarea>
-        </div>
-
-        <button type="submit" class="w-full bg-brand-accent hover:bg-orange-500 text-white font-bold text-lg py-4 rounded-full transition transform hover:scale-105 shadow-lg" data-i18n="book.submit">
-          Send Inquiry
-        </button>
-      </form>
-    </div>
-  </section>
-
+    </section>
   </main>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="bg-brand-dark text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-        <div>
-          <img src="images/logo.png" alt="Horizon Airs Split" class="h-16 rounded-full mb-4">
-          <p class="text-white/60 text-sm" data-i18n="footer.desc">Panoramic gyrocopter flights over Dalmatia. The safest aircraft, certified pilots, unforgettable views.</p>
-        </div>
-        <div>
-          <h4 class="font-bold mb-4" data-i18n="footer.contact">Contact</h4>
-          <div class="space-y-2 text-white/70 text-sm">
-            <p>tutafranko@gmail.com</p>
-            <p>Split Harbor &bull; Piket Airfield, Sinj</p>
-            <p data-i18n="footer.region">Split-Dalmatia County, Croatia</p>
-          </div>
-        </div>
-        <div>
-          <h4 class="font-bold mb-4" data-i18n="footer.links">Quick Links</h4>
-          <div class="space-y-2 text-white/70 text-sm">
-            <a href="#tours" class="block hover:text-white transition" data-i18n="footer.l1">Our Tours</a>
-            <a href="#pricing" class="block hover:text-white transition" data-i18n="footer.l2">Pricing</a>
-            <a href="#faq" class="block hover:text-white transition">FAQ</a>
-            <a href="#booking" class="block hover:text-white transition" data-i18n="footer.l4">Booking</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="font-bold mb-4" data-i18n="footer.safety">Safety</h4>
-          <div class="space-y-2 text-white/70 text-sm">
-            <p data-i18n="footer.s1">CCAA &mdash; Croatian Civil Aviation Agency</p>
-            <p data-i18n="footer.s2">EASA &mdash; European Aviation Safety Agency</p>
-            <p>AutoGyro MTO 914 / Rotax 914</p>
-          </div>
-        </div>
-      </div>
-      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-          <p class="text-white/40 text-sm" data-i18n="footer.copy">&copy; 2026 Horizon Airs Split. All rights reserved.</p>
-          <button type="button" data-cookie-settings hidden class="text-white/60 hover:text-white text-sm underline transition">Cookie settings</button>
-        </div>
-        <div class="flex items-center gap-4">
-          <a href="https://instagram.com/horizonairssplit" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition" aria-label="Instagram">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="https://facebook.com/horizonairssplit" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-white transition" aria-label="Facebook">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-        </div>
-      </div>
+  <footer class="foot">
+    <div class="wrap">
+      <div><a class="brand" href="#home"><img src="/images/logo-znak.webp" width="320" height="320" alt="Horizon Airs Split"><span aria-hidden="true">Horizon Airs Split</span></a><p data-i18n="ft.d">Gyrocopter flights over Dalmatia from Split Harbour and Piket airfield near Sinj.</p></div>
+      <div><h3 data-i18n="ft.c">Contact</h3><p><a href="mailto:tutafranko@gmail.com">tutafranko@gmail.com</a></p><p data-i18n="ft.r">Split-Dalmatia County, Croatia</p></div>
+      <div><h3 data-i18n="ft.s">Safety</h3><p data-i18n="ft.s1">CCAA, Croatian Civil Aviation Agency</p><p data-i18n="ft.s2">EASA, European Union Aviation Safety Agency</p><p>AutoGyro MTO 914, Rotax 914</p></div>
+      <div><h3 data-i18n="ft.m">More</h3><p><a href="https://instagram.com/horizonairssplit" target="_blank" rel="noopener noreferrer">Instagram</a></p><p><a href="https://facebook.com/horizonairssplit" target="_blank" rel="noopener noreferrer">Facebook</a></p><p><a href="/blog">Blog</a></p></div>
+      <p class="copy"><span data-i18n="ft.copy">© 2026 Horizon Airs Split. All rights reserved.</span> <button type="button" data-cookie-settings hidden>Cookie settings</button></p>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-6 right-6 z-40 bg-brand-navy hover:bg-brand-sky text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 translate-y-4 pointer-events-none" aria-label="Back to top">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-  </button>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
+  <dialog class="box" id="box" aria-label="Photo"><img alt=""><p></p><button type="button" class="prev" aria-label="Previous photo">←</button><button type="button" class="next" aria-label="Next photo">→</button><button type="button" class="close" aria-label="Close">×</button></dialog>
 </body>
 </html>
